@@ -1,0 +1,13 @@
+pages:   
+    stage: deploy   
+    tags:   
+    - shell   
+    script:   
+    - mkdir .public   
+    - cp -r ./tests-unitaires-cours/WebContent/* .public   
+    - mv .public public   
+    artifacts:     
+        paths:     
+        - public   
+    only:   
+    - master

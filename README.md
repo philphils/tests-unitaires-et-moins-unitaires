@@ -1,6 +1,4 @@
 # Tests unitaires et moins unitaires
 
-Les catégories de tests
-Le minimum vital pour faire un test sans framework
-Junit
-Les mocks
+Formation sur les tests unitaires
+Et sur la vraie vie aussi sur les applis legacy...
