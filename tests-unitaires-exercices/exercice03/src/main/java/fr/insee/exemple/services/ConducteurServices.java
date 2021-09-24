@@ -9,9 +9,9 @@ import fr.insee.exemple.model.Voiture;
 
 public class ConducteurServices {
 	
-	private ModeleVoitureServices modeleVoitureServices;
+	private IModeleVoitureServices modeleVoitureServices;
 	
-	public ConducteurServices(ModeleVoitureServices modeleVoitureServices) {
+	public ConducteurServices(IModeleVoitureServices modeleVoitureServices) {
 		this.modeleVoitureServices = modeleVoitureServices;
 	}
 

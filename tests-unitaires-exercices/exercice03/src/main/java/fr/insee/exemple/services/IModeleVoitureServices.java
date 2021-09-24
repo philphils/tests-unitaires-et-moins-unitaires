@@ -1,11 +1,10 @@
 package fr.insee.exemple.services;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import fr.insee.exemple.model.ModeleVoiture;
 
-public class ModeleVoitureServices implements IModeleVoitureServices {
+public interface IModeleVoitureServices {
 
 	/**
 	 * Méthode qui filtre une liste de modèles de voitures pour ne conserver que les modèles considérés comme
@@ -16,11 +15,6 @@ public class ModeleVoitureServices implements IModeleVoitureServices {
 	 * @param modeles
 	 * @return liste des modeles considérés comme moins polluants
 	 */
-	@Override
-	public List<ModeleVoiture> filtrerModelesMoinsPolluants(List<ModeleVoiture> modeles) {
-		return modeles.stream()
-				.filter(m -> m.estPeuPolluante())
-				.collect(Collectors.toList());
-	}
-	
+	List<ModeleVoiture> filtrerModelesMoinsPolluants(List<ModeleVoiture> modeles);
+
 }

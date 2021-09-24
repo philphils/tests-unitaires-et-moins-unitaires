@@ -2,8 +2,10 @@ package fr.insee.exemple.services;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,39 +19,102 @@ import fr.insee.exemple.model.Voiture;
 public class ConducteurServicesTest {
 
 	@Test
-	public void filtrerConducteursPossedantAuMoinsUnModelePeuPolluantTest() {
+	public void filtrerConducteursPossedantToujoursAuMoinsUnModelePeuPolluantTest() {
 		// GIVEN
 		
-		// Un modele peu polluant et un polluant
-		final ModeleVoiture polluant = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	LocalDate.of(1995, 01, 01));
-		final ModeleVoiture peuPolluant = new ModeleVoiture("Citroen", "Saxo", Carburant.ELECTRIQUE, 	LocalDate.of(2015, 01, 01));
+		// Un modele (peu polluant ou pas, peu importe)
+		final ModeleVoiture unModele = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	LocalDate.of(1995, 01, 01));
 		
 		// Des conducteurs
-		final Conducteur conducteurAvecUnSeulVehiculePolluant = new Conducteur("POLLUEUR", "x"); 
-		conducteurAvecUnSeulVehiculePolluant.addVoiture(new Voiture("1", polluant));
+		final Conducteur conducteurAvecUnSeulVehicule = new Conducteur("POLLUEUR", "x"); 
+		conducteurAvecUnSeulVehicule.addVoiture(new Voiture("1", unModele));
 		
-		final Conducteur conducteurAvecUnSeulVehiculePeuPolluant = new Conducteur("PEUPOLLUEUR", "x"); 
-		conducteurAvecUnSeulVehiculePeuPolluant.addVoiture(new Voiture("2", peuPolluant));
+		final Conducteur conducteurAvecDeuxVehicules= new Conducteur("MOYENPOLLUEUR", "x"); 
+		conducteurAvecDeuxVehicules.addVoiture(new Voiture("3", unModele));
+		conducteurAvecDeuxVehicules.addVoiture(new Voiture("4", unModele));
 
-		final Conducteur conducteurAvecUnVehiculePolluantEtUnPeuPolluant = new Conducteur("MOYENPOLLUEUR", "x"); 
-		conducteurAvecUnVehiculePolluantEtUnPeuPolluant.addVoiture(new Voiture("3", polluant));
-		conducteurAvecUnVehiculePolluantEtUnPeuPolluant.addVoiture(new Voiture("4", peuPolluant));
-
-		List<Conducteur> conducteurs = Arrays.asList(conducteurAvecUnSeulVehiculePolluant, conducteurAvecUnSeulVehiculePeuPolluant, conducteurAvecUnVehiculePolluantEtUnPeuPolluant);
+		List<Conducteur> conducteurs = Arrays.asList(conducteurAvecDeuxVehicules, conducteurAvecUnSeulVehicule);
 
 		// WHEN
-		ModeleVoitureServices modeleVoitureServices = new ModeleVoitureServices();
+		IModeleVoitureServices modeleVoitureServices = new ModeleVoitureServicesFake();
 		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
 		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
 		
 		// THEN
-		System.out.println("Liste des conducteurs après filtrage");
-		for (Conducteur conducteur : conducteursAvecAuMoinsUneVoiturePeuPolluante) {
-			System.out.println(conducteur);
-		}
-		
 		assertThat(conducteursAvecAuMoinsUneVoiturePeuPolluante, 
-				containsInAnyOrder(conducteurAvecUnSeulVehiculePeuPolluant, conducteurAvecUnVehiculePolluantEtUnPeuPolluant)
+				containsInAnyOrder(conducteurAvecDeuxVehicules, conducteurAvecUnSeulVehicule)
 				);
+	}
+	
+	
+	@Test
+	public void filtrerConducteurNePossedantJamaisUnModelePeuPolluantTest() {
+		// GIVEN
+		
+		// Un modele (peu polluant ou pas, peu importe)
+		final ModeleVoiture unModele = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	LocalDate.of(1995, 01, 01));
+		
+		// Des conducteurs
+		final Conducteur conducteurAvecUnSeulVehicule = new Conducteur("POLLUEUR", "x"); 
+		conducteurAvecUnSeulVehicule.addVoiture(new Voiture("1", unModele));
+		
+		final Conducteur conducteurAvecDeuxVehicules= new Conducteur("MOYENPOLLUEUR", "x"); 
+		conducteurAvecDeuxVehicules.addVoiture(new Voiture("3", unModele));
+		conducteurAvecDeuxVehicules.addVoiture(new Voiture("4", unModele));
+
+		List<Conducteur> conducteurs = Arrays.asList(conducteurAvecDeuxVehicules, conducteurAvecUnSeulVehicule);
+
+		// WHEN
+		
+		// Ici on utilise une lambda directement pour donner le comportement du fake : c'est possible car on a affaire à une interface fonctionnelle
+		// Donc on va faire un service qui renvoie tjs une liste vide signifiant que jamais un modele n'est peu polluant.
+		IModeleVoitureServices modeleVoitureServices = l -> new ArrayList<>();
+		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
+		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
+		
+		// THEN
+		assertTrue(conducteursAvecAuMoinsUneVoiturePeuPolluante.isEmpty());
+	}
+	
+	
+	
+	// ce test n'est pas du tout nécessaire d'un point de vue couverture de test : c'est du temps perdu !
+	// Mais c'est pour montrer une mise en oeuvre plus compliquée d'un fake
+	@Test
+	public void filtrerConducteurTest() {
+		// GIVEN
+		
+		// Un modele (peu polluant ou pas, peu importe)
+		final ModeleVoiture unModele = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	LocalDate.of(1995, 01, 01));
+		
+		// Des conducteurs
+		final Conducteur conducteurAvecUnSeulVehicule = new Conducteur("POLLUEUR", "x"); 
+		conducteurAvecUnSeulVehicule.addVoiture(new Voiture("1", unModele));
+		
+		final Conducteur conducteurAvecDeuxVehicules= new Conducteur("MOYENPOLLUEUR", "x"); 
+		conducteurAvecDeuxVehicules.addVoiture(new Voiture("3", unModele));
+		conducteurAvecDeuxVehicules.addVoiture(new Voiture("4", unModele));
+
+		List<Conducteur> conducteurs = Arrays.asList(conducteurAvecDeuxVehicules, conducteurAvecUnSeulVehicule);
+
+		// WHEN
+		
+		// Ici on utilise une lambda directement pour donner le comportement du fake : c'est possible car on a affaire à une interface fonctionnelle
+		// Donc on va faire un service qui renvoie une liste vide 1 fois sur 2
+		IModeleVoitureServices modeleVoitureServices = this::videUneFoisSurDeux;
+		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
+		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
+		
+		// THEN
+		assertThat(conducteursAvecAuMoinsUneVoiturePeuPolluante, 
+				containsInAnyOrder(conducteurAvecDeuxVehicules)
+				);
+	}
+	
+	private int compteurFake = 0;
+	
+	private List<ModeleVoiture> videUneFoisSurDeux(List<ModeleVoiture> l) {
+		compteurFake++; 
+		return compteurFake % 2 == 0 ? new ArrayList<>() : l;
 	}
 }

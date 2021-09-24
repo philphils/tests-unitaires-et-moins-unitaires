@@ -16,7 +16,7 @@ import fr.insee.exemple.model.ModeleVoiture;
 
 public class ModeleVoitureServicesTest {
 
-	private ModeleVoitureServices mvs = new ModeleVoitureServices();
+	private IModeleVoitureServices mvs = new ModeleVoitureServices();
 	
 	// cf. solution 3 sur assertions multiples
 	@Rule
