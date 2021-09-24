@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.Conducteur;
@@ -36,7 +37,8 @@ public class ConducteurServicesTest {
 		List<Conducteur> conducteurs = Arrays.asList(conducteurAvecDeuxVehicules, conducteurAvecUnSeulVehicule);
 
 		// WHEN
-		IModeleVoitureServices modeleVoitureServices = new ModeleVoitureServicesFake();
+		IModeleVoitureServices modeleVoitureServices = Mockito.mock(IModeleVoitureServices.class);
+		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyListOf(ModeleVoiture.class))).thenReturn(Arrays.asList(unModele));
 		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
 		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
 		
@@ -68,7 +70,8 @@ public class ConducteurServicesTest {
 		
 		// Ici on utilise une lambda directement pour donner le comportement du fake : c'est possible car on a affaire à une interface fonctionnelle
 		// Donc on va faire un service qui renvoie tjs une liste vide signifiant que jamais un modele n'est peu polluant.
-		IModeleVoitureServices modeleVoitureServices = l -> new ArrayList<>();
+		IModeleVoitureServices modeleVoitureServices = Mockito.mock(IModeleVoitureServices.class);
+		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyListOf(ModeleVoiture.class))).thenReturn(new ArrayList<ModeleVoiture>());
 		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
 		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
 		
@@ -79,6 +82,7 @@ public class ConducteurServicesTest {
 	
 	
 	// ce test n'est pas du tout nécessaire d'un point de vue couverture de test : c'est du temps perdu !
+	@SuppressWarnings("unchecked")
 	// Mais c'est pour montrer une mise en oeuvre plus compliquée d'un fake
 	@Test
 	public void filtrerConducteurTest() {
@@ -101,7 +105,8 @@ public class ConducteurServicesTest {
 		
 		// Ici on utilise une lambda directement pour donner le comportement du fake : c'est possible car on a affaire à une interface fonctionnelle
 		// Donc on va faire un service qui renvoie une liste vide 1 fois sur 2
-		IModeleVoitureServices modeleVoitureServices = this::videUneFoisSurDeux;
+		IModeleVoitureServices modeleVoitureServices = Mockito.mock(IModeleVoitureServices.class);
+		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyListOf(ModeleVoiture.class))).thenReturn(Arrays.asList(unModele), new ArrayList<ModeleVoiture>());
 		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
 		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
 		
@@ -111,10 +116,5 @@ public class ConducteurServicesTest {
 				);
 	}
 	
-	private int compteurFake = 0;
-	
-	private List<ModeleVoiture> videUneFoisSurDeux(List<ModeleVoiture> l) {
-		compteurFake++; 
-		return compteurFake % 2 == 0 ? new ArrayList<>() : l;
-	}
+
 }
