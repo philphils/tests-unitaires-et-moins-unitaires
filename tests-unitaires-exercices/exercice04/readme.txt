@@ -19,3 +19,7 @@ Mais, si on active un flag et qu'on donne une date "fictive" à l'horloge, c'est
 
 En vous servant de cette horloge, réécrivez votre code.
 Et réécrivez votre test pour le rendre durable. 
+
+
+A noter qu'avec la nouvelle librairie java.time en Java 8, la notion d'Horloge est implémentée directement dans Java (classe Clock).
+A vous de vous informer pour l'utiliser plutôt que d'écrire le code comme dans l'exercice.

@@ -3,6 +3,8 @@ package fr.insee.exemple.model;
 import java.time.LocalDate;
 import java.time.Period;
 
+import fr.insee.exemple.services.Horloge;
+
 public class ModeleVoiture {
 	private String nomConstructeur;
 	private String nomModele;
@@ -99,8 +101,8 @@ public class ModeleVoiture {
 	public Boolean estPeuPolluante() {
 		return    Carburant.ELECTRIQUE.equals(carburant)
 			   || Carburant.GPL.equals(carburant)
-			   || (Carburant.ESSENCE.equals(carburant) && Period.between(anneeConstruction, LocalDate.now()).getYears() <= 5)
-			   || (Carburant.DIESEL.equals(carburant) && Period.between(anneeConstruction, LocalDate.now()).getYears() <= 3)
+			   || (Carburant.ESSENCE.equals(carburant) && Period.between(anneeConstruction, Horloge.now()).getYears() <= 5)
+			   || (Carburant.DIESEL.equals(carburant) && Period.between(anneeConstruction, Horloge.now()).getYears() <= 3)
 				;
 	}
 

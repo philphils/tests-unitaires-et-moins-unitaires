@@ -8,10 +8,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Test;
 
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.ModeleVoiture;
+import fr.insee.exemple.services.Horloge;
 import fr.insee.exemple.services.ModeleVoitureServices;
 
 public class ModeleVoitureServicesTest {
@@ -22,9 +24,13 @@ public class ModeleVoitureServicesTest {
 	@Test
 	public void filtrerModelesMoinsPolluantsTest() {
 		// GIVEN
+	
+		// Ce test se déroulera comme si on était le 1er janvier 2019
+		Horloge.fixNow(LocalDate.of(2019, 1, 1));
+		
 		final ModeleVoiture citroenSaxoEssence1995 = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	LocalDate.of(1995, 01, 01));
 		final ModeleVoiture peugeot405Diesel2000 = new ModeleVoiture("Peugeot", "405",  Carburant.DIESEL,  	LocalDate.of(2000, 01, 01));
-		final ModeleVoiture renaultClioEssence1999 = new ModeleVoiture("Renault", "Clio", Carburant.ESSENCE, 	LocalDate.of(2016, 01, 01));
+		final ModeleVoiture renaultClioEssence1999 = new ModeleVoiture("Renault", "Clio", Carburant.ESSENCE, 	LocalDate.of(2014, 01, 01));
 		final ModeleVoiture citroenSaxoElectrique2015 = new ModeleVoiture("Citroen", "Saxo", Carburant.ELECTRIQUE, 	LocalDate.of(2015, 01, 01));
 		final ModeleVoiture renaultClioGpl2013 = new ModeleVoiture("Renault", "Clio", Carburant.GPL, 		LocalDate.of(2013, 01, 01));
 		
@@ -58,4 +64,10 @@ public class ModeleVoitureServicesTest {
 				);
 	}
 	
+	
+	// NE PAS OUBLIER DE REMETTRE L'HORLOGE A ZERO POUR LES AUTRES TESTS OU TRAITEMENTS 
+	@After
+    public void reinitHorloge() {
+		Horloge.fixNow(null);
+	}
 }
