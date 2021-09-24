@@ -1,8 +1,8 @@
 package fr.insee.exemple.services;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -49,19 +49,9 @@ public class ModeleVoitureServicesTest {
 	
 		// modeles attendus après filtrage
 		
-		// 1ère façon si on connait l'ordre des réponses attendues
-		List<ModeleVoiture> modelesAttendusApresFlitrage = new ArrayList<>();
-		modelesAttendusApresFlitrage.add(renaultClioEssence1999);
-		modelesAttendusApresFlitrage.add(citroenSaxoElectrique2015);
-		modelesAttendusApresFlitrage.add(renaultClioGpl2013);
-		
-		assertArrayEquals("Les voitures moins polluantes obtenues ne sont pas correctes", modelesAttendusApresFlitrage.toArray(), voituresMoinsPolluantes.toArray());
-	
-		// 2ème façon si on ne connaît pas l'ordre des réponses attendu
-		assertTrue(voituresMoinsPolluantes.contains(renaultClioEssence1999));
-		assertTrue(voituresMoinsPolluantes.contains(citroenSaxoElectrique2015));
-		assertTrue(voituresMoinsPolluantes.contains(renaultClioGpl2013));
-		assertEquals("Nombre d'éléments attendus incorrect- contenu : " + voituresMoinsPolluantes, 3, voituresMoinsPolluantes.size());
+		assertThat(voituresMoinsPolluantes, 
+				containsInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015, renaultClioGpl2013)
+				);
 	}
 	
 }
