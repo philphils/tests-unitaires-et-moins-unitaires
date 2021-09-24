@@ -1,6 +1,7 @@
 package fr.insee.exemple.model;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class ModeleVoiture {
 	private String nomConstructeur;
@@ -98,8 +99,8 @@ public class ModeleVoiture {
 	public Boolean estPeuPolluante() {
 		return    Carburant.ELECTRIQUE.equals(carburant)
 			   || Carburant.GPL.equals(carburant)
-			   || (Carburant.ESSENCE.equals(carburant) && anneeConstruction.isAfter(LocalDate.of(1998,  01,  01)))
-			   || (Carburant.DIESEL.equals(carburant) && anneeConstruction.isAfter(LocalDate.of(2011, 01, 01)))
+			   || (Carburant.ESSENCE.equals(carburant) && Period.between(anneeConstruction, LocalDate.now()).getYears() <= 5)
+			   || (Carburant.DIESEL.equals(carburant) && Period.between(anneeConstruction, LocalDate.now()).getYears() <= 3)
 				;
 	}
 

@@ -16,12 +16,15 @@ import fr.insee.exemple.services.ModeleVoitureServices;
 
 public class ModeleVoitureServicesTest {
 
+	
+	// PROBLEME : Ce test va dépendre de la date du jour. Donc dans 1 an son résultat ne sera plus bon.
+	
 	@Test
 	public void filtrerModelesMoinsPolluantsTest() {
 		// GIVEN
 		final ModeleVoiture citroenSaxoEssence1995 = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	LocalDate.of(1995, 01, 01));
 		final ModeleVoiture peugeot405Diesel2000 = new ModeleVoiture("Peugeot", "405",  Carburant.DIESEL,  	LocalDate.of(2000, 01, 01));
-		final ModeleVoiture renaultClioEssence1999 = new ModeleVoiture("Renault", "Clio", Carburant.ESSENCE, 	LocalDate.of(1999, 01, 01));
+		final ModeleVoiture renaultClioEssence1999 = new ModeleVoiture("Renault", "Clio", Carburant.ESSENCE, 	LocalDate.of(2016, 01, 01));
 		final ModeleVoiture citroenSaxoElectrique2015 = new ModeleVoiture("Citroen", "Saxo", Carburant.ELECTRIQUE, 	LocalDate.of(2015, 01, 01));
 		final ModeleVoiture renaultClioGpl2013 = new ModeleVoiture("Renault", "Clio", Carburant.GPL, 		LocalDate.of(2013, 01, 01));
 		
