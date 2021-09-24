@@ -1,4 +1,4 @@
-Exercice 01 - instructions
+2Exercice 01 - instructions
 
 Le but de l'exercice est de repartir de l'exemple 01 et de faire évoluer le code pour appliquer petit à petit les bonnes pratiques en terme de tests unitaires (cf. cours).
 
