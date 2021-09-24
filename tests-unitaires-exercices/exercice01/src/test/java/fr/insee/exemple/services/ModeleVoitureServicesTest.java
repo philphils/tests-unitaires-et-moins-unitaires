@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Test;
+
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.ModeleVoiture;
 
 public class ModeleVoitureServicesTest {
 
+	@Test
 	public void filtrerModelesMoinsPolluantsTest() {
 		// GIVEN
 		final ModeleVoiture citroenSaxoEssence1995 = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	LocalDate.of(1995, 01, 01));
@@ -53,10 +56,5 @@ public class ModeleVoitureServicesTest {
 		}
 
 	}
-	
-	public static void main(String[] args) {
-		new ModeleVoitureServicesTest().filtrerModelesMoinsPolluantsTest();
-	}
-	
 	
 }
