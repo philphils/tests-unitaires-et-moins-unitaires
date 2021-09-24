@@ -1,5 +1,7 @@
 package fr.insee.exemple.model;
 
+import java.util.Objects;
+
 public class Voiture {
 
 	private String immatriculation;
@@ -29,10 +31,7 @@ public class Voiture {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((immatriculation == null) ? 0 : immatriculation.hashCode());
-		return result;
+		return Objects.hash(immatriculation, modele);
 	}
 
 	@Override
@@ -44,12 +43,7 @@ public class Voiture {
 		if (getClass() != obj.getClass())
 			return false;
 		Voiture other = (Voiture) obj;
-		if (immatriculation == null) {
-			if (other.immatriculation != null)
-				return false;
-		} else if (!immatriculation.equals(other.immatriculation))
-			return false;
-		return true;
+		return Objects.equals(immatriculation, other.immatriculation) && Objects.equals(modele, other.modele);
 	}
 
 	@Override

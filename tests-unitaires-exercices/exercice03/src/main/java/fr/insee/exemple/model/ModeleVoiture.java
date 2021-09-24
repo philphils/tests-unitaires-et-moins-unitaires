@@ -100,7 +100,7 @@ public class ModeleVoiture {
 			   || Carburant.GPL.equals(carburant)
 			   || (Carburant.ESSENCE.equals(carburant) && anneeConstruction.isAfter(LocalDate.of(1998,  01,  01)))
 			   || (Carburant.DIESEL.equals(carburant) && anneeConstruction.isAfter(LocalDate.of(2011, 01, 01)))
-		;
+				;
 	}
 
 }

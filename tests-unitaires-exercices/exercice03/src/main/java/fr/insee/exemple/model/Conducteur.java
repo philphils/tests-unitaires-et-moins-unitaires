@@ -1,57 +1,50 @@
 package fr.insee.exemple.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class Conducteur {
 
 	private String nom;
 	private String prenom;
-	private List<Voiture> voitures;
+	private Set<Voiture> voitures;
 
 	public Conducteur(String nom, String prenom) {
-		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.voitures = new ArrayList<>();
+		voitures = new HashSet<>();
+	}
+
+	public Set<Voiture> getVoitures() {
+		return voitures;
+	}
+
+	public void setVoitures(Set<Voiture> voitures) {
+		this.voitures = voitures;
 	}
 
 	public String getNom() {
 		return nom;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
 	public String getPrenom() {
 		return prenom;
 	}
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	public List<Voiture> getVoitures() {
+	public Set<Voiture> addVoiture(Voiture nouvelleVoiture) {
+		voitures.add(nouvelleVoiture);
 		return voitures;
 	}
 
-	public void setVoitures(List<Voiture> voitures) {
-		this.voitures = voitures;
-	}
-
-	@Override
-	public String toString() {
-		return String.format("Conducteur [nom=%s, prenom=%s, voitures=%s]", nom, prenom, voitures);
+	public Set<Voiture> removeVoiture(Voiture ancienneVoiture) {
+		voitures.remove(ancienneVoiture);
+		return voitures;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
-		return result;
+		return Objects.hash(nom, prenom);
 	}
 
 	@Override
@@ -63,21 +56,12 @@ public class Conducteur {
 		if (getClass() != obj.getClass())
 			return false;
 		Conducteur other = (Conducteur) obj;
-		if (nom == null) {
-			if (other.nom != null)
-				return false;
-		} else if (!nom.equals(other.nom))
-			return false;
-		if (prenom == null) {
-			if (other.prenom != null)
-				return false;
-		} else if (!prenom.equals(other.prenom))
-			return false;
-		return true;
+		return Objects.equals(nom, other.nom) && Objects.equals(prenom, other.prenom);
 	}
 
-	public void addVoiture(Voiture nouvelleVoiture) {
-		voitures.add(nouvelleVoiture);
+	@Override
+	public String toString() {
+		return String.format("Conducteur [nom=%s, prenom=%s, voitures=%s]", nom, prenom, voitures);
 	}
-	
+
 }
