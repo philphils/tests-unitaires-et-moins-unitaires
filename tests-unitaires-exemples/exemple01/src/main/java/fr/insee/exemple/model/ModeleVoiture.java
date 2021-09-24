@@ -1,18 +1,14 @@
 package fr.insee.exemple.model;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-
-import fr.insee.exemple.DateUtils;
 
 public class ModeleVoiture {
 	private String nomConstructeur;
 	private String nomModele;
 	private Carburant carburant;
-	private Date anneeConstruction;
+	private LocalDate anneeConstruction;
 
-	public ModeleVoiture(String nomConstructeur, String nomModele, Carburant carburant, Date anneeConstruction) {
+	public ModeleVoiture(String nomConstructeur, String nomModele, Carburant carburant, LocalDate anneeConstruction) {
 		super();
 		this.nomConstructeur = nomConstructeur;
 		this.nomModele = nomModele;
@@ -44,11 +40,11 @@ public class ModeleVoiture {
 		this.carburant = carburant;
 	}
 
-	public Date getAnneeConstruction() {
+	public LocalDate getAnneeConstruction() {
 		return anneeConstruction;
 	}
 
-	public void setAnneeConstruction(Date anneeConstruction) {
+	public void setAnneeConstruction(LocalDate anneeConstruction) {
 		this.anneeConstruction = anneeConstruction;
 	}
 
@@ -102,8 +98,8 @@ public class ModeleVoiture {
 	public Boolean estPeuPolluante() {
 		return    Carburant.ELECTRIQUE.equals(carburant)
 			   || Carburant.GPL.equals(carburant)
-			   || (Carburant.ESSENCE.equals(carburant) && anneeConstruction.after(DateUtils.asDate(LocalDate.of(1998,  01,  01))))
-			   || (Carburant.DIESEL.equals(carburant) && anneeConstruction.after(new Date(2010, 12, 31, 23, 59, 59)))
+			   || (Carburant.ESSENCE.equals(carburant) && anneeConstruction.isAfter(LocalDate.of(1998,  01,  01)))
+			   || (Carburant.DIESEL.equals(carburant) && anneeConstruction.isAfter(LocalDate.of(2011, 01, 01)))
 				;
 	}
 

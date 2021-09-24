@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import fr.insee.exemple.DateUtils;
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.ModeleVoiture;
 
@@ -29,11 +28,11 @@ public class ModeleVoitureServices {
 	
 	public static void main(String[] args) {
 		List<ModeleVoiture> modeles = new ArrayList<>();
-		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	 	DateUtils.asDate(LocalDate.of(1995, 01, 01))) );
-		modeles.add(new ModeleVoiture("Peugeot", "405",  Carburant.DIESEL,  	DateUtils.asDate(LocalDate.of(2000, 01, 01))) );
-		modeles.add(new ModeleVoiture("Renault", "Clio", Carburant.ESSENCE, 	DateUtils.asDate(LocalDate.of(1999, 01, 01))) );
-		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ELECTRIQUE, 	DateUtils.asDate(LocalDate.of(2015, 01, 01))) );
-		modeles.add(new ModeleVoiture("Renault", "Clio", Carburant.GPL, 		DateUtils.asDate(LocalDate.of(2013, 01, 01))) );
+		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,	LocalDate.of(1995, 01, 01)) );
+		modeles.add(new ModeleVoiture("Peugeot", "405",  Carburant.DIESEL, LocalDate.of(2000, 01, 01)) );
+		modeles.add(new ModeleVoiture("Renault", "Clio", Carburant.ESSENCE, LocalDate.of(1999, 01, 01)) );
+		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ELECTRIQUE, LocalDate.of(2015, 01, 01)) );
+		modeles.add(new ModeleVoiture("Renault", "Clio", Carburant.GPL, LocalDate.of(2013, 01, 01)) );
 		
 		System.out.println("Liste des modèles avant filtrage");
 		for (ModeleVoiture modeleVoiture : modeles) {
