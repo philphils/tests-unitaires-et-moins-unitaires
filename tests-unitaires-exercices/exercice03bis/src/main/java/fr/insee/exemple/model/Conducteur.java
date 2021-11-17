@@ -8,6 +8,7 @@ public class Conducteur {
 
 	private String nom;
 	private String prenom;
+	private String mail;
 	private Set<Voiture> voitures;
 
 	public Conducteur(String nom, String prenom) {
@@ -32,6 +33,14 @@ public class Conducteur {
 		return prenom;
 	}
 
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
 	public Set<Voiture> addVoiture(Voiture nouvelleVoiture) {
 		voitures.add(nouvelleVoiture);
 		return voitures;
@@ -44,7 +53,7 @@ public class Conducteur {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(nom, prenom);
+		return Objects.hash(mail, nom, prenom, voitures);
 	}
 
 	@Override
@@ -56,12 +65,16 @@ public class Conducteur {
 		if (getClass() != obj.getClass())
 			return false;
 		Conducteur other = (Conducteur) obj;
-		return Objects.equals(nom, other.nom) && Objects.equals(prenom, other.prenom);
+		return Objects.equals(mail, other.mail) && Objects.equals(nom, other.nom)
+				&& Objects.equals(prenom, other.prenom) && Objects.equals(voitures, other.voitures);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Conducteur [nom=%s, prenom=%s, voitures=%s]", nom, prenom, voitures);
+		return "Conducteur [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", voitures=" + voitures + "]";
 	}
+	
+	
+	
 
 }
