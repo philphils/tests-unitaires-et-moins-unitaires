@@ -13,15 +13,17 @@ On décide désormais de créer et tester une méthode qui filtre les voitures p
  possède).
  
  Nous sommes dans un environnement de test, nous ne souhaitons donc pas envoyer réellement de requête à un serveur
- mail.
+ mail. En cas d'appel au serveur de mail externe en environnement de test,  une exception ServeurMailConnexionException est levée.
  
- Vous devez compléter la classe de test ConducteurServicesMessagerieTest en créant un Mock de l'interface IMessagerieService.
+
+ Vous devez compléter la classe de test ConducteurServicesMessagerieTest :
+ 
+ 1 - Compléter le premier test sans mocker l'interface IMessagerieService 
+ pour vérifier que vous récupérez bien l'exception ServeurMailConnexionException
+ 
+ 2 - Compléter le second test en créant un Mock de l'interface IMessagerieService.
  
  Ce Mock tâchera de reproduire le comportement de la méthode avertirConducteur de IMessagerieService 
  mais en "court-circuitant" l'envoi de mail.
- 
- En cas d'appel au serveur de mail externe en environnement de test,
-  une exception ServeurMailConnexionException est levée.
-
  
  
