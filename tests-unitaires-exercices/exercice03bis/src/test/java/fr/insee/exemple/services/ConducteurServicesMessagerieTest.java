@@ -28,7 +28,7 @@ public class ConducteurServicesMessagerieTest {
 	 * 1 - Tester qu'on récupère bien l'exception si le service de messagerie n'est
 	 * pas mocké. Modifier l'annotation @Test au besoin
 	 */
-	@Test
+	@Test(expected = ServeurMailConnexionException.class)
 	public void testServeurMailConnexionException() throws ServeurMailConnexionException {
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
@@ -52,10 +52,12 @@ public class ConducteurServicesMessagerieTest {
 		/*
 		 * Compléter à partir d'ici
 		 */
+		
+		// WHEN
+		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(), new MessagerieService());
 
 		// WHEN
-
-		// THEN
+		List<ModeleVoiture> list = conducteurServices.filtrerModelePolluantEtAvertirConducteur(conducteur);
 
 	}
 
@@ -92,9 +94,17 @@ public class ConducteurServicesMessagerieTest {
 		 * Compléter à partir d'ici
 		 */
 
+		IMessagerieService messagerieService = Mockito.mock(MessagerieService.class);
+		Mockito.when(messagerieService.avertirConducteur(Mockito.any(), Mockito.any()))
+				.thenAnswer(i -> i.getArguments()[1]);
+
+		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(), messagerieService);
+
 		// WHEN
+		List<ModeleVoiture> list = conducteurServices.filtrerModelePolluantEtAvertirConducteur(conducteur);
 
 		// THEN
+		Assert.assertEquals("On doit avoir 4 modele de voiture après filtrage", 4, list.size());
 
 	}
 
