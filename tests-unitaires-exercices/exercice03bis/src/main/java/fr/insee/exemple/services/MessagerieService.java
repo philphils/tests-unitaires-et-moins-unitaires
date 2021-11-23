@@ -7,25 +7,28 @@ public class MessagerieService implements IMessagerieService {
 
 	@Override
 	public String avertirConducteur(Conducteur conducteur, String message) throws ServeurMailConnexionException {
-		
+
 		return envoyerMail(conducteur.getMail(), message);
 	}
 
 	private String envoyerMail(String mail, String message) throws ServeurMailConnexionException {
 
-		if(testConnexionServeurMail()) {
+		if (testConnexionServeurMail()) {
 			System.out.println("Mail envoyé à l'adresse : " + mail);
 			System.out.println("Corps du message : " + message);
+		} else {
+			throw new ServeurMailConnexionException();
 		}
-		else {
-			throw new ServeurMailConnexionException("Le serveur mail ne répond pas. L'envoi du mail est impossible.");
-		}
-		
-		return null;
+
+		return message;
 	}
 
+	/**
+	 * Méthode qui renvoie toujours faux pour les besoins de l'exercice
+	 * 
+	 * @return
+	 */
 	private boolean testConnexionServeurMail() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
