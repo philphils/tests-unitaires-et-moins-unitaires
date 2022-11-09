@@ -50,7 +50,6 @@ reveal.js comes with a broad range of features including [nested slides](https:/
 - [Multiplexing](#multiplexing)
   - [Master presentation](#master-presentation)
   - [Client presentation](#client-presentation)
-  - [Socket.io server](#socketio-server)
 - [MathJax](#mathjax)
 - [License](#license)
 
