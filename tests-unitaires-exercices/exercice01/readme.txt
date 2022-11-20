@@ -11,8 +11,3 @@ c- sans utiliser encore JUnit, copier le test de la méthode main et éventuelle
 d- intégrer Junit au projet
 e- transformer votre méthode de test en méthode JUnit; supprimer le code devenu inutile; lancer le test
 f- ajouter des assertions pour vérifier le bon fonctionnement du test -> cf cours
-
-3. revoir vos assertions en utilisant des assertions avec matcher -> cf cours
-
- 
- 
