@@ -1,8 +1,8 @@
 package fr.insee.exemple.services.exceptions;
 
-public class ServeurMailConnexionException extends Exception {
+public class ConnexionServeurMailException extends Exception {
 	
-	public ServeurMailConnexionException() {
+	public ConnexionServeurMailException() {
 		super("Connexion impossible au serveur de messagerie mail");
 	}
 

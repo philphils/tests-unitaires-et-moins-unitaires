@@ -10,7 +10,7 @@ import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.Conducteur;
 import fr.insee.exemple.model.ModeleVoiture;
 import fr.insee.exemple.model.Voiture;
-import fr.insee.exemple.services.exceptions.ServeurMailConnexionException;
+import fr.insee.exemple.services.exceptions.ConnexionServeurMailException;
 
 public class ConducteurServicesMessagerieTest {
 
@@ -20,8 +20,8 @@ public class ConducteurServicesMessagerieTest {
 	 * 1 - Tester qu'on récupère bien l'exception si le service de messagerie n'est
 	 * pas mocké. Modifier l'annotation @Test au besoin
 	 */
-	@Test(expected = ServeurMailConnexionException.class)
-	public void testServeurMailConnexionException() throws ServeurMailConnexionException {
+	@Test(expected = ConnexionServeurMailException.class)
+	public void testServeurMailConnexionException() throws ConnexionServeurMailException {
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
 		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE, LocalDate.of(1995, 01, 01)));
@@ -52,10 +52,10 @@ public class ConducteurServicesMessagerieTest {
 	 * interface IMessagerieService Vérifier qu'il y a bien 4 voitures
 	 * non-polluantes à l'issue.
 	 * 
-	 * @throws ServeurMailConnexionException
+	 * @throws ConnexionServeurMailException
 	 */
 	@Test
-	public void testFiltrerModelePolluantEtAvertirConducteur() throws ServeurMailConnexionException {
+	public void testFiltrerModelePolluantEtAvertirConducteur() throws ConnexionServeurMailException {
 
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
