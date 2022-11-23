@@ -60,13 +60,7 @@ public class ModeleVoitureServicesTest {
 				hasItems(modeleMoinsPolluant1, modeleMoinsPolluant2, modeleMoinsPolluant3, modeleMoinsPolluant4));
 		assertThat("contient exactement 4 éléments", modelesPeuPolluants.size(), equalTo(4));
 
-		// Solution 2
-		assertThat("Contient les items moins polluants", modelesPeuPolluants,
-				hasItems(modeleMoinsPolluant1, modeleMoinsPolluant2, modeleMoinsPolluant3, modeleMoinsPolluant4));
-		assertThat("contient exactement tous les moins polluants", modelesPeuPolluants,
-				hasItems(modeleMoinsPolluant1, modeleMoinsPolluant2, modeleMoinsPolluant3, modeleMoinsPolluant4));
-
-		// Solution 3 - cf.
+		// Solution 2 - cf.
 		// https://carminetech.wordpress.com/2015/10/30/junit-how-to-collect-multiple-assertion-results-in-one-test/
 		collector.checkThat(modelesPeuPolluants,
 				hasItems(modeleMoinsPolluant1, modeleMoinsPolluant2, modeleMoinsPolluant3, modeleMoinsPolluant4));
