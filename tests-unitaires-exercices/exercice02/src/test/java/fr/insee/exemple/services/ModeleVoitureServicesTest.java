@@ -1,5 +1,7 @@
 package fr.insee.exemple.services;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
