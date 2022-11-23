@@ -1,7 +1,7 @@
 package fr.insee.exemple.services;
 
 import fr.insee.exemple.model.Conducteur;
-import fr.insee.exemple.services.exceptions.ServeurMailConnexionException;
+import fr.insee.exemple.services.exceptions.ConnexionServeurMailException;
 
 public interface IMessagerieService {
 
@@ -11,8 +11,8 @@ public interface IMessagerieService {
 	 * @param conducteur
 	 * @param message    TODO
 	 * @return Renvoie le message destiné au conducteur (qui est passé en paramêtre)
-	 * @throws ServeurMailConnexionException
+	 * @throws ConnexionServeurMailException
 	 */
-	public String avertirConducteur(Conducteur conducteur, String message) throws ServeurMailConnexionException;
+	public String avertirConducteur(Conducteur conducteur, String message) throws ConnexionServeurMailException;
 
 }

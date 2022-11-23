@@ -1,4 +1,4 @@
-package fr.insee.exemple.services;
+package fr.insee.exemples.services;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
@@ -14,6 +14,7 @@ import org.junit.rules.ErrorCollector;
 
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.ModeleVoiture;
+import fr.insee.exemple.services.ModeleVoitureServices;
 
 public class ModeleVoitureServicesTest {
 

@@ -1,7 +1,7 @@
 Exercice 02 - instructions
 
-Le but de l'exercice est d'intégrer petit à petit les notions de fake et mock dans la réalisation des tests unitaires.
-Tout en continuant à se questionner sur la pertinence de certains tests ou la façon de les faire (cf. cours - bonnes pratiques)
+On part d'une classe de service avec son test (déjà écrits).
+On va faire évoluer le code et vérifier avec la réalisation d'un nouveau test.
 
 0- examiner le code du test disponible
 cf. cours sur matcher, hamcrest et tests multiples

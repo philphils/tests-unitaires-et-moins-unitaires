@@ -6,7 +6,8 @@ import java.util.stream.Collectors;
 import fr.insee.exemple.model.Conducteur;
 import fr.insee.exemple.model.ModeleVoiture;
 import fr.insee.exemple.model.Voiture;
-import fr.insee.exemple.services.exceptions.ServeurMailConnexionException;
+import fr.insee.exemple.services.exceptions.EnvoiMailException;
+import fr.insee.exemple.services.exceptions.ConnexionServeurMailException;
 
 public class ConducteurServices {
 
@@ -18,12 +19,11 @@ public class ConducteurServices {
 		this.modeleVoitureServices = modeleVoitureServices;
 	}
 
-	
 	public ConducteurServices(IModeleVoitureServices modeleVoitureServices, IMessagerieService messagerieService) {
 		this.modeleVoitureServices = modeleVoitureServices;
 		this.messagerieService = messagerieService;
 	}
-	
+
 	private boolean estUnConducteurPossedantAuMoinsUnModelePeuPolluant(Conducteur conducteur) {
 		List<ModeleVoiture> modelesPossedesParConducteur = conducteur.getVoitures().stream().map(Voiture::getModele)
 				.collect(Collectors.toList());
@@ -36,11 +36,18 @@ public class ConducteurServices {
 	}
 
 	public List<ModeleVoiture> filtrerModelePolluantEtAvertirConducteur(Conducteur conducteur)
-			throws ServeurMailConnexionException {
+			throws ConnexionServeurMailException, EnvoiMailException {
+
 		List<ModeleVoiture> list = modeleVoitureServices.filtrerModelesMoinsPolluants(
 				conducteur.getVoitures().stream().map(v -> v.getModele()).collect(Collectors.toList()));
-		messagerieService.avertirConducteur(conducteur,
-				"Vous avez " + list.size() + " modèles de voitures non polluantes");
+
+		String message = "Vous avez " + list.size() + " modèles de voitures non polluantes";
+
+		String retourMail = messagerieService.avertirConducteur(conducteur, message);
+
+		if (retourMail == null || !retourMail.equals(message))
+			throw new EnvoiMailException("Un problème a eu lieu lors de l'envoi du mail au conducteur");
+
 		return list;
 	}
 

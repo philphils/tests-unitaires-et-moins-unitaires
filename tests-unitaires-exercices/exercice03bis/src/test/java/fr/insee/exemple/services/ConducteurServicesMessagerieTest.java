@@ -29,7 +29,7 @@ public class ConducteurServicesMessagerieTest {
 	 * pas mocké. Modifier l'annotation @Test au besoin
 	 */
 	@Test(expected = ServeurMailConnexionException.class)
-	public void testServeurMailConnexionException() throws ServeurMailConnexionException {
+	public void testServeurMailConnexionException() throws ConnexionServeurMailException {
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
 		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE, LocalDate.of(1995, 01, 01)));
@@ -69,7 +69,7 @@ public class ConducteurServicesMessagerieTest {
 	 * @throws ServeurMailConnexionException
 	 */
 	@Test
-	public void testFiltrerModelePolluantEtAvertirConducteur() throws ServeurMailConnexionException {
+	public void testFiltrerModelePolluantEtAvertirConducteur() throws ConnexionServeurMailException {
 
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
