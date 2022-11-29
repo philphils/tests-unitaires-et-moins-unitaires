@@ -1,23 +1,19 @@
 package fr.insee.exemple.services;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.assertTrue;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.Conducteur;
 import fr.insee.exemple.model.ModeleVoiture;
 import fr.insee.exemple.model.Voiture;
+import fr.insee.exemple.services.exceptions.ConnexionServeurMailException;
+import fr.insee.exemple.services.exceptions.EnvoiMailException;
 import fr.insee.exemple.services.exceptions.ServeurMailConnexionException;
 
 public class ConducteurServicesMessagerieTest {
@@ -27,9 +23,11 @@ public class ConducteurServicesMessagerieTest {
 	/**
 	 * 1 - Tester qu'on récupère bien l'exception si le service de messagerie n'est
 	 * pas mocké. Modifier l'annotation @Test au besoin
+	 * 
+	 * @throws EnvoiMailException
 	 */
 	@Test(expected = ServeurMailConnexionException.class)
-	public void testServeurMailConnexionException() throws ConnexionServeurMailException {
+	public void testServeurMailConnexionException() throws ConnexionServeurMailException, EnvoiMailException {
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
 		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE, LocalDate.of(1995, 01, 01)));
@@ -52,12 +50,17 @@ public class ConducteurServicesMessagerieTest {
 		/*
 		 * Compléter à partir d'ici
 		 */
-		
+
 		// WHEN
-		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(), new MessagerieService());
+		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(),
+				new MessagerieService());
 
 		// WHEN
 		List<ModeleVoiture> list = conducteurServices.filtrerModelePolluantEtAvertirConducteur(conducteur);
+
+		// On doit avoir lever une exception avant, si le programme continue jusqu'ici
+		// le test doit échouer
+		Assert.fail();
 
 	}
 
@@ -66,10 +69,13 @@ public class ConducteurServicesMessagerieTest {
 	 * interface IMessagerieService Vérifier qu'il y a bien 4 voitures
 	 * non-polluantes à l'issue.
 	 * 
+	 * @throws EnvoiMailException
+	 * 
 	 * @throws ServeurMailConnexionException
 	 */
 	@Test
-	public void testFiltrerModelePolluantEtAvertirConducteur() throws ConnexionServeurMailException {
+	public void testFiltrerModelePolluantEtAvertirConducteur()
+			throws ConnexionServeurMailException, EnvoiMailException {
 
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
