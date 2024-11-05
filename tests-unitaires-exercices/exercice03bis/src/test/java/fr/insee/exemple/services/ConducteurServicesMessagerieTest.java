@@ -14,7 +14,6 @@ import fr.insee.exemple.model.ModeleVoiture;
 import fr.insee.exemple.model.Voiture;
 import fr.insee.exemple.services.exceptions.ConnexionServeurMailException;
 import fr.insee.exemple.services.exceptions.EnvoiMailException;
-import fr.insee.exemple.services.exceptions.ServeurMailConnexionException;
 
 public class ConducteurServicesMessagerieTest {
 
@@ -26,7 +25,7 @@ public class ConducteurServicesMessagerieTest {
 	 * 
 	 * @throws EnvoiMailException
 	 */
-	@Test(expected = ServeurMailConnexionException.class)
+	@Test(expected = ConnexionServeurMailException.class)
 	public void testServeurMailConnexionException() throws ConnexionServeurMailException, EnvoiMailException {
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
