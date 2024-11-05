@@ -39,7 +39,7 @@ public class ConducteurServicesTest {
 
 		// WHEN
 		IModeleVoitureServices modeleVoitureServices = Mockito.mock(IModeleVoitureServices.class);
-		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyListOf(ModeleVoiture.class)))
+		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyList()))
 				.thenReturn(Arrays.asList(unModele));
 		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
 		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices
@@ -75,7 +75,7 @@ public class ConducteurServicesTest {
 		// Donc on va faire un service qui renvoie tjs une liste vide signifiant que
 		// jamais un modele n'est peu polluant.
 		IModeleVoitureServices modeleVoitureServices = Mockito.mock(IModeleVoitureServices.class);
-		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyListOf(ModeleVoiture.class)))
+		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyList()))
 				.thenReturn(new ArrayList<ModeleVoiture>());
 		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
 		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices
@@ -113,7 +113,7 @@ public class ConducteurServicesTest {
 		// c'est possible car on a affaire à une interface fonctionnelle
 		// Donc on va faire un service qui renvoie une liste vide 1 fois sur 2
 		IModeleVoitureServices modeleVoitureServices = Mockito.mock(IModeleVoitureServices.class);
-		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyListOf(ModeleVoiture.class)))
+		Mockito.when(modeleVoitureServices.filtrerModelesMoinsPolluants(Mockito.anyList()))
 				.thenReturn(Arrays.asList(unModele), new ArrayList<ModeleVoiture>());
 		ConducteurServices conducteurServices = new ConducteurServices(modeleVoitureServices);
 		List<Conducteur> conducteursAvecAuMoinsUneVoiturePeuPolluante = conducteurServices
