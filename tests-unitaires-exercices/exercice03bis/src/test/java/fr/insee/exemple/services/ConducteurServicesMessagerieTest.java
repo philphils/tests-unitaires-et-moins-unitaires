@@ -1,7 +1,6 @@
 package fr.insee.exemple.services;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,7 +8,10 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.Conducteur;
@@ -18,7 +20,11 @@ import fr.insee.exemple.model.Voiture;
 import fr.insee.exemple.services.exceptions.ConnexionServeurMailException;
 import fr.insee.exemple.services.exceptions.EnvoiMailException;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ConducteurServicesMessagerieTest {
+
+	@Mock
+	private IMessagerieService mockMessagerieService;
 
 	// EXERCICE 3 BIS//
 
@@ -54,6 +60,8 @@ public class ConducteurServicesMessagerieTest {
 		 */
 
 		// WHEN
+		// on utilise ici une vraie instance de MessagerieService, qui doit donc échouer
+		// puisqu'il est impossible de se connecter au serveur de messagerie
 		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(),
 				new MessagerieService());
 
@@ -102,11 +110,11 @@ public class ConducteurServicesMessagerieTest {
 		 * Compléter à partir d'ici
 		 */
 
-		IMessagerieService messagerieService = Mockito.mock(MessagerieService.class);
-		Mockito.when(messagerieService.avertirConducteur(Mockito.any(), Mockito.any()))
+		Mockito.when(mockMessagerieService.avertirConducteur(Mockito.any(), Mockito.any()))
 				.thenAnswer(i -> i.getArguments()[1]);
 
-		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(), messagerieService);
+		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(),
+				mockMessagerieService);
 
 		// WHEN
 		List<ModeleVoiture> list = conducteurServices.filtrerModelePolluantEtAvertirConducteur(conducteur);
@@ -115,7 +123,7 @@ public class ConducteurServicesMessagerieTest {
 		assertThat(list).hasSize(4);
 		// on vérifie ici qu'on est bien passé par la méthode "avertirConducteur" du
 		// mock
-		verify(messagerieService).avertirConducteur(Mockito.any(Conducteur.class), Mockito.anyString());
+		Mockito.verify(mockMessagerieService).avertirConducteur(Mockito.any(Conducteur.class), Mockito.anyString());
 
 	}
 
