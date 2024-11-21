@@ -1,6 +1,7 @@
 package fr.insee.exemple.services;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -112,6 +113,9 @@ public class ConducteurServicesMessagerieTest {
 
 		// THEN
 		assertThat(list).hasSize(4);
+		// on vérifie ici qu'on est bien passé par la méthode "avertirConducteur" du
+		// mock
+		verify(messagerieService).avertirConducteur(Mockito.any(Conducteur.class), Mockito.anyString());
 
 	}
 
