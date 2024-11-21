@@ -1,7 +1,6 @@
 package fr.insee.exemple.services;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
@@ -46,8 +45,8 @@ public class ConducteurServicesTest {
 				.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
 
 		// THEN
-		assertThat(conducteursAvecAuMoinsUneVoiturePeuPolluante,
-				containsInAnyOrder(conducteurAvecDeuxVehicules, conducteurAvecUnSeulVehicule));
+		assertThat(conducteursAvecAuMoinsUneVoiturePeuPolluante).containsExactlyInAnyOrder(conducteurAvecDeuxVehicules,
+				conducteurAvecUnSeulVehicule);
 	}
 
 	@Test
@@ -120,7 +119,7 @@ public class ConducteurServicesTest {
 				.filtrerConducteursPossedantAuMoinsUnModelePeuPolluant(conducteurs);
 
 		// THEN
-		assertThat(conducteursAvecAuMoinsUneVoiturePeuPolluante, containsInAnyOrder(conducteurAvecDeuxVehicules));
+		assertThat(conducteursAvecAuMoinsUneVoiturePeuPolluante).containsExactlyInAnyOrder(conducteurAvecDeuxVehicules);
 	}
 
 }

@@ -1,27 +1,19 @@
 package fr.insee.exemple.services;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItems;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ErrorCollector;
 
 import fr.insee.exemple.model.Carburant;
 import fr.insee.exemple.model.ModeleVoiture;
 
 public class ModeleVoitureServicesTest {
 
-	private ModeleVoitureServices mvs = new ModeleVoitureServices();
-
-	// cf. solution 3 sur assertions multiples
-	@Rule
-	public ErrorCollector collector = new ErrorCollector();
+	private IModeleVoitureServices mvs = new ModeleVoitureServices();
 
 	@Test
 	public void testerFiltrerModelesMoinsPolluants() {
@@ -48,6 +40,7 @@ public class ModeleVoitureServicesTest {
 			System.out.println(modeleVoiture);
 		}
 
+		// WHEN
 		List<ModeleVoiture> modelesPeuPolluants = mvs.filtrerModelesMoinsPolluants(modeles);
 
 		System.out.println("Liste des modèles après filtrage");
@@ -55,15 +48,10 @@ public class ModeleVoitureServicesTest {
 			System.out.println(modeleVoiture);
 		}
 
-		// Solution 1
-		assertThat("contient tous les moins polluants", modelesPeuPolluants,
-				hasItems(modeleMoinsPolluant1, modeleMoinsPolluant2, modeleMoinsPolluant3, modeleMoinsPolluant4));
-		assertThat("contient exactement 4 éléments", modelesPeuPolluants.size(), equalTo(4));
+		// THEN
+		// avec message d'erreur
+		assertThat(modelesPeuPolluants).as("Doit contenir les 4 modèles les moins polluants").containsExactlyInAnyOrder(
+				modeleMoinsPolluant1, modeleMoinsPolluant2, modeleMoinsPolluant3, modeleMoinsPolluant4);
 
-		// Solution 2 - cf.
-		// https://carminetech.wordpress.com/2015/10/30/junit-how-to-collect-multiple-assertion-results-in-one-test/
-		collector.checkThat(modelesPeuPolluants,
-				hasItems(modeleMoinsPolluant1, modeleMoinsPolluant2, modeleMoinsPolluant3, modeleMoinsPolluant4));
-		collector.checkThat(modelesPeuPolluants.size(), equalTo(4));
 	}
 }

@@ -1,7 +1,6 @@
 package fr.insee.exemples.services;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.assertj.core.api.Assertions.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -69,9 +68,7 @@ public class ModeleVoitureServicesMockTest {
 		}
 
 		// modeles attendus après filtrage
-
-		assertThat(voituresMoinsPolluantes,
-				containsInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015, renaultClioGpl2013));
+		assertThat(voituresMoinsPolluantes).containsExactlyInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015,
+				renaultClioGpl2013);
 	}
-
 }

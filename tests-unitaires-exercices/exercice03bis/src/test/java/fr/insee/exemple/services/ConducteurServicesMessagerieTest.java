@@ -1,5 +1,7 @@
 package fr.insee.exemple.services;
 
+import static org.assertj.core.api.Assertions.*;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +111,7 @@ public class ConducteurServicesMessagerieTest {
 		List<ModeleVoiture> list = conducteurServices.filtrerModelePolluantEtAvertirConducteur(conducteur);
 
 		// THEN
-		Assert.assertEquals("On doit avoir 4 modele de voiture après filtrage", 4, list.size());
+		assertThat(list).hasSize(4);
 
 	}
 

@@ -1,7 +1,6 @@
 package fr.insee.exemple.services;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
@@ -57,8 +56,9 @@ public class ModeleVoitureServicesTest {
 		assertTrue(voituresMoinsPolluantes.contains(renaultClioGpl2013));
 
 		// Avec les Matcher (cf partie suivante du diapo)
-		assertThat(voituresMoinsPolluantes,
-				containsInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015, renaultClioGpl2013));
+		assertThat(voituresMoinsPolluantes).containsExactlyInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015,
+				renaultClioGpl2013);
+
 	}
 
 }
