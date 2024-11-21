@@ -5,3 +5,5 @@ Et sur la vraie vie aussi sur les applis legacy...
 
 
 Lien vers le diapo : https://gitlab.insee.fr/formations-informatiques/cursus-nouveaux-arrivants-sndin/tests-unitaires-et-moins-unitaires/-/blob/master/tests-unitaires-cours/nouveauDiapo/diapo_tests_unitaires.odp?ref_type=heads
+
+Les TP sont à réalisés à partir de la branche : TP_EXERCICES
