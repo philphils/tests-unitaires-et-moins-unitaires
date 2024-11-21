@@ -16,7 +16,7 @@ import fr.insee.exemple.model.ModeleVoiture;
 public class ModeleVoitureServicesTest {
 
 	@Test
-	public void filtrerModelesMoinsPolluantsTest() {
+	public void testFiltrerModelesMoinsPolluants() {
 		// GIVEN
 		final ModeleVoiture citroenSaxoEssence1995 = new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE,
 				LocalDate.of(1995, 01, 01));
