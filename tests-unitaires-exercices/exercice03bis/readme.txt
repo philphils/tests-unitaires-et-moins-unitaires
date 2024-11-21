@@ -22,6 +22,8 @@ On décide désormais de créer et tester une méthode qui filtre les voitures p
  pour vérifier que vous récupérez bien l'exception ServeurMailConnexionException
  
  2 - Compléter le second test en créant un Mock de l'interface IMessagerieService.
+  Vérifiez que vous appelé bien la méthode avertirConducteur du mock
+
  
  Ce Mock tâchera de reproduire le comportement de la méthode avertirConducteur de IMessagerieService 
  mais en "court-circuitant" l'envoi de mail.
