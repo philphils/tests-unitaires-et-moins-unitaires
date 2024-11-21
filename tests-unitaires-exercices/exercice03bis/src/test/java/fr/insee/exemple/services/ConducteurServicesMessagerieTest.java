@@ -21,7 +21,7 @@ public class ConducteurServicesMessagerieTest {
 	 * pas mocké. Compléter le test (Modifier l'annotation @Test au besoin)
 	 */
 	@Test
-	public void testServeurMailConnexionException() {
+	public void testEnvoiMailException() {
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
 		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE, LocalDate.of(1995, 01, 01)));
