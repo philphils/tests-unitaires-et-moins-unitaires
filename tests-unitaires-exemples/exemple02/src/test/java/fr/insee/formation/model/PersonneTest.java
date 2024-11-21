@@ -7,7 +7,7 @@ import org.junit.Test;
 public class PersonneTest {
 
 	@Test
-	public void testerCreationUnePersonne() {
+	public void testCreationPersonne() {
 		// Given
 		final String nom = "DURAND";
 		final String prenom = "Mathieu";
@@ -22,10 +22,4 @@ public class PersonneTest {
 		
 	}
 
-	@Test
-	public void testerTutu() {
-//		// contexte
-//		MaClasseBatch.main("TRACE");
-//		//vérifications
-	}
 }
