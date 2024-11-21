@@ -8,6 +8,6 @@ Le but de l'exercice est de repartir de l'exemple 01 et de faire évoluer le cod
 a- créer une classe "jumelle" de la classe à tester -> quel package et quel nom de classe ?
 b- créer une méthode de test -> quel nom de méthode ?
 c- sans utiliser encore JUnit, copier la méthode main à côté de votre nouvelle méthode lancer le
-d- intégrer Junit au projet
+d- intégrer Junit 5 au projet
 e- transformer votre méthode de test en méthode JUnit; remplacer les log par des assertions; supprimer le code devenu inutile; lancer le test
 f- ajouter des assertions pour vérifier le bon fonctionnement du test -> cf cours
