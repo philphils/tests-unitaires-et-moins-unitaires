@@ -18,10 +18,10 @@ public class ConducteurServicesMessagerieTest {
 
 	/**
 	 * 1 - Tester qu'on récupère bien l'exception si le service de messagerie n'est
-	 * pas mocké. Modifier l'annotation @Test au besoin
+	 * pas mocké. Compléter le test (Modifier l'annotation @Test au besoin)
 	 */
-	@Test(expected = ConnexionServeurMailException.class)
-	public void testServeurMailConnexionException() throws ConnexionServeurMailException {
+	@Test
+	public void testServeurMailConnexionException() {
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();
 		modeles.add(new ModeleVoiture("Citroen", "Saxo", Carburant.ESSENCE, LocalDate.of(1995, 01, 01)));
@@ -42,20 +42,26 @@ public class ConducteurServicesMessagerieTest {
 		conducteur.setMail("conducteur@pollution.mail");
 
 		/*
-		 * Compléter à partir d'ici
+		 * On utilise ici une "vraie" instance de messagerie service qui échouera à se
+		 * connecter puisq'on est en environnement de test. On veut vérifier qu'on
+		 * récupère bien l'exception dans ce cas.
 		 */
+		ConducteurServices conducteurServices = new ConducteurServices(new ModeleVoitureServices(),
+				new MessagerieService());
+
+		// WHEN
 
 	}
 
 	/**
 	 * 2 - Testez la méthode filtrerModelePolluantEtAvertirConducteur en mockant la
-	 * interface IMessagerieService Vérifier qu'il y a bien 4 voitures
-	 * non-polluantes à l'issue.
-	 * 
-	 * @throws ConnexionServeurMailException
+	 * interface IMessagerieService. Vous pouvez utiliser les méthodes mock() de
+	 * Mockito pour le créer ou encore les annotations. Vérifier qu'il y a bien 4
+	 * voitures non-polluantes à l'issue et que la méthode avertirConducteur a bien
+	 * été appelée
 	 */
 	@Test
-	public void testFiltrerModelePolluantEtAvertirConducteur() throws ConnexionServeurMailException {
+	public void testFiltrerModelePolluantEtAvertirConducteur() {
 
 		// GIVEN
 		List<ModeleVoiture> modeles = new ArrayList<>();

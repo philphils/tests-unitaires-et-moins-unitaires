@@ -36,17 +36,20 @@ public class ConducteurServices {
 	}
 
 	public List<ModeleVoiture> filtrerModelePolluantEtAvertirConducteur(Conducteur conducteur)
-			throws ConnexionServeurMailException, EnvoiMailException {
+			throws EnvoiMailException {
 
 		List<ModeleVoiture> list = modeleVoitureServices.filtrerModelesMoinsPolluants(
 				conducteur.getVoitures().stream().map(v -> v.getModele()).collect(Collectors.toList()));
 
 		String message = "Vous avez " + list.size() + " modèles de voitures non polluantes";
 
-		String retourMail = messagerieService.avertirConducteur(conducteur, message);
-
-		if (retourMail == null || !retourMail.equals(message))
-			throw new EnvoiMailException("Un problème a eu lieu lors de l'envoi du mail au conducteur");
+		try {
+			messagerieService.avertirConducteur(conducteur, message);
+		} catch (ConnexionServeurMailException connexionServeurMailException) {
+			throw new EnvoiMailException(
+					"Le conducteur n'a pu être avertit en raison d'un problème de connexion au serveur mail",
+					connexionServeurMailException);
+		}
 
 		return list;
 	}
