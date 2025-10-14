@@ -8,37 +8,38 @@
 *  __S’assurer que le code « fonctionne »__ 
 *  __Valider\, guider les développements__ 
 *  __Sécuriser les livraisons__ 
-*  __S’assurer que ce qu’on a déjà codé continu de fonctionner \(non\-régression\)__ 
-*  __En cas de maintenance :__ 
-  *  __Vérifier que le bug est bien résolu__ 
-  *  __S’assurer qu’il ne se reproduira plus__ 
+
+--
+
+# Pourquoi tester
+
+*  __S’assurer que ce qu’on a déjà codé continu de fonctionner__
+* __Prévenir la régression du code__ \(non-régression\)
+*  __En maintenance :__ 
+    *  __Vérifier que le bug est bien résolu__ 
+    *  __S’assurer qu’il ne se reproduira plus__ 
 
 --
 # Pourquoi un test « unitaire » ?
 
- __Test : Vérifie que le code effectue le traitement attendu__ 
+* __Test : Vérifie que le code effectue le traitement attendu__ 
 
- __Unitaire : Porte sur une partie précise du programme__ 
+* __Unitaire : Porte sur une partie précise/réduite du programme, une "unité"__ 
 
- __On teste de manière isolée une portion du code \(une « unité »\)__ 
-
- __Selon les écoles\, portion de code plus ou moins petite__ 
-
- __Pour des tests sur des fonctionnalités entières on parle de « tests d’intégration »__ 
-
+* __Isolation : On isole cette portion du code pour pouvoir ne tester qu'elle__ 
 
 --
 # Quelles utilités ?
 
- __Localiser plus rapidement les erreurs du code__ 
+* __Localiser plus rapidement les erreurs du code__ 
 
- __Prévenir la régression__ 
+* __Prévenir la régression__ 
 
- __Sécuriser les livraisons__ 
+* __Sécuriser les livraisons__ 
 
- __Aide à la documentation et à la compréhension du code__ 
+* __Aide à la documentation et à la compréhension du code__ 
 
- __Structurer les développements \(TDD\)__ 
+* __Structurer les développements \(TDD\)__ 
 
 
 --
@@ -47,25 +48,43 @@
 
 
 *  __Tests nombreux et sur des parties réduites du code :__ 
-  *  → __Détection rapide de l’origine des erreurs__ 
+    *  → __Détection plus rapide de l’origine des erreurs__ 
 *  __Inconvénient :__ 
-    *  __Coûts de développement élevé__ 
-    *  __Coûts de maintenance__ 
-*  __Définir une stratégie de test__ 
+    *  __Coûts de développement plus élevé__ 
+    *  __Coûts de maintenance plus élevé__ 
+
+--
+
+# Plusieurs écoles...
+
+* __Selon les écoles\, tests plus ou moins "unitaire"__ 
+* __Besoin de définir pour un projet sa « stratégie de test »__
+  *  __Qu’est\-ce qu’on teste en priorité ?__
+  *  __Comment on teste ?__ 
+  *  __Quels outils on utilise ?__ 
+  *  __Quels données de test ?__
+  * __etc...__
+
+
+--
+
+# Conclusion
+
 *  __Adopter une stratégie « raisonnable »__ 
+* __Pour des tests sur des fonctionnalités entières on parle de « tests d’intégration »__ 
 
 
 
 --
 # Prévention de la régression
 
- __Durée de vie d’une application peut\-être longue \(10 ans ou plus\)__ 
+* __Durée de vie d’une application peut\-être longue \(10 ans ou plus\)__ 
 
- __Nombreuses évolutions\, corrections de bugs\, perte d’informations__ 
+* __Nombreuses évolutions\, corrections de bugs\, perte d’informations__ 
 
- __Comment s’assurer que des évolutions/corrections n’impactent pas d’autres fonctionnalités ?__ 
+* __Comment s’assurer que des évolutions/corrections n’impactent pas d’autres fonctionnalités ?__ 
 
- __Solution : Mise en place de tests \(et d’abord sur la partie qu’on modifie \!\)__ 
+* __Solution : Mise en place de tests \(et d’abord sur la partie qu’on modifie \!\)__ 
 
 
 --
@@ -73,65 +92,64 @@
 
 ![](../img/diapo_tests_unitaires_1.png)
 
- __Je livre / je livre pas ? …  __ 
+ __Je livre / je livre pas ? …__ 
 
- __Rejeu de l’ensemble des tests avant chaque livraison \(via maven par ex\)__ 
+--
+# Sécuriser les mises en production
 
- __Permet de limiter les erreurs de « dernière minute »__ 
+* __Rejeu de l’ensemble des tests avant chaque livraison \(via maven, Gitlab CI/CD...\)__ 
 
- __Vérifier la non\-régression du code applicatif__ 
+* __Permet de limiter les erreurs de « dernière minute »__ 
+
+* __Vérifier la non\-régression du code applicatif__ 
 
 
 --
 # Outil de compréhension du code
 
- __Les tests peuvent être vu comme une partie intégrante de la doc de l’application__ 
+* __Les tests peuvent être vu comme une partie de la doc de l’application__ 
 
- __Peut permettre de mieux comprendre le fonctionnement de l’application__ 
+* __Peut permettre de mieux comprendre le fonctionnement de l’application__ 
 
- __Attention : bien documenter les tests eux\-mêmes \!__ 
+* __Attention à documenter les tests eux\-mêmes \!__ 
 
 
 --
-# Comment tester ?
+# Un impact fort sur le projet
 
-
-
-*  __Impact fort sur la manière de programmer __ 
-*  __Charge importante : 1/3 du temps par ex\.__ 
-*  __Nécessite la mise en place d’une « stratégie de test » a__    __u niveau du projet :__ 
-  *  __Qu’est\-ce qu’on teste en priorité ?__    __	__ 
-  *  __Comment on teste ?__ 
-  *  __Quels outils on utilise ?__ 
-  *  __Quels données de test ?__ 
-*  __Nombreux outils pour faciliter les tests__ 
-
-
+* __Charge importante : on estime à 1/3 du temps !__ 
+* __Nombreux outils pour faciliter/automatiser les tests__ 
+* __Arbitrage quantité/efficacité de tests__
 
 --
 # Structure de base d’un test
 
-
-
-*  __Décomposition en 3 étapes :__ 
-  *  __GIVEN : Constitution des données et des conditions du test__ 
-  *  __WHEN : Exécution du traitement à tester__ 
-  *  __THEN : Vérification du bon fonctionnement du code__ 
-*  __Permet de guider l’écriture du test__ 
-*  __Les étapes peuvent être indiquées clairement en commentaires \(conseillé\)__ 
-*  __Certaines étapes peuvent être vides selon les tests \(ex : GIVEN\)__ 
-
-
+*  __Décomposition en 3 étapes explicites (en commentaires) :__ 
+    *  /*__GIVEN*/ : Constitution des données et des conditions du test__ 
+    *  /*__WHEN*/ : Exécution du traitement à tester__ 
+    *  /*__THEN*/ : Vérification du bon fonctionnement du code__ 
 
 --
-# Première approche : les tests « main »
+# Structure de base d’un test
 
+*  __Permet de guider l’écriture du test__ 
+*  __Les étapes peuvent être indiquées clairement en commentaires \(conseillé\)__ 
+*  __Certaines étapes peuvent être vides selon les tests \(ex : GIVEN vide si pas de paramètres\)__ 
 
+--
+# Première approche : <br/> les tests « main »
 
 *  __Méthode archaïque de test__ 
 *  __Encore présente dans certaines applications__ 
 *  __Écriture d’une classe avec une méthode :__ 
-* <span style="color:#cc6c1d"> __public__   <span style="color:#d9e8f7"> __ __   <span style="color:#cc6c1d"> __static__   <span style="color:#d9e8f7"> __ __   <span style="color:#cc6c1d"> __void__   <span style="color:#d9e8f7"> __ __   <span style="color:#1eb540"> __main__   <span style="color:#000000"> __\(__   <span style="color:#1290c3"> __String__   <span style="color:#000000"> __\[\] __   <span style="color:#79abff"> __args__   <span style="color:#000000"> __\)__ 
+  ```java 
+    public static void main(String[] args) {
+      // Test de la mthode... 
+    } 
+  ```
+--
+# Première approche : <br/> les tests « main »
+
 *  __Vérification du bon fonctionnement « manuelle » :__ 
     *  __Plantage ou non ?__ 
     *  __Lecture de l’affichage console__ 
@@ -144,34 +162,37 @@
 
 ![](../img/diapo_tests_unitaires_2.png)
 
- __Présentation du modèle__ 
+* __Présentation du modèle__ 
 
- __Test de : __   <span style="color:#a7ec21"> __filtrerModelesMoinsPolluants__ 
+* __Test de :__   <span style="color:#a7ec21; font-weight: bold">filtrerModelesMoinsPolluants</span>
 
- __Repérage de la structure du test \(GIVEN\, WHEN\, THEN\)__ 
+* __Repérage de la structure du test \(GIVEN\, WHEN\, THEN\)__ 
 
- __Exécution du test__ 
+--
+# Exemple 1 : Test main
 
- __Observation des résultats__ 
+* __Exécution du test__ 
 
- __Commentaires ?__ 
+* __Observation des résultats__ 
 
- __Inconvénients ?__ 
+* __Commentaires ?__ 
+
+* __Inconvénients ?__ 
 
 
 --
 # Tests « main » : le bilan
 
- __Rend le service de base\, mais…__ 
+* __Rend le service de base\, mais…__ 
 
- __Comment faire si fonction main existe déjà ?__ 
+* __Comment faire si fonction main existe déjà ?__ 
 
- __Lancement manuel des tests un à un__ 
+* __Lancement manuel des tests un à un__ 
 
- __Pas de séparation claire entre le code de test et de production__ 
+* __Pas de séparation claire entre le code de test et de production__ 
 
- __Travail de vérification par l’utilisateur __ 
+* __Travail de vérification par l’utilisateur*__ 
 
- __Risque d’erreur__ 
+* __Risque d’erreur__
 
- __→ __    __Besoin d’outiller les tests \!__ 
+    * → __Besoin d’outiller les tests \!__ 

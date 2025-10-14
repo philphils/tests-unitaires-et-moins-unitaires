@@ -5,6 +5,7 @@
   <title>Formation – Tests unitaires</title>
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"> <!-- pour le code -->
   <link rel="stylesheet" href="diapo_style.css"> <!-- si tu as un CSS perso -->
 </head>
 <body>
@@ -27,11 +28,12 @@
 
   <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
   <script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
   <script>
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',   // optionnel
-      plugins: [ RevealMarkdown ]
+      plugins: [ RevealMarkdown, RevealHighlight ]
     });
   </script>
 </body>
