@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Formation – Tests unitaires</title>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="diapo_style.css"> <!-- si tu as un CSS perso -->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Chapitre 0 (Page d’accueil / plan) -->
+      <section data-markdown="chapitres/chapitre0-intro.md"
+               data-separator="^---$"
+               data-separator-vertical="^--$"></section>
+
+      <!-- Chapitre 1 : généralités (HORIZONTAL) ; son contenu défile en VERTICAL avec `--` -->
+      <section data-markdown="chapitres/chapitre1-generalites.md"
+               data-separator="^---$"
+               data-separator-vertical="^--$"></section>
+
+      <!-- Tu pourras ajouter d’autres chapitres ici -->
+      <!-- <section data-markdown="chapitre2-junit.md" data-separator="^---$" data-separator-vertical="^--$"></section> -->
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',   // optionnel
+      plugins: [ RevealMarkdown ]
+    });
+  </script>
+</body>
+</html>
