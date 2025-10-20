@@ -120,6 +120,7 @@
 * __Charge importante : on estime à 1/3 du temps !__ 
 * __Nombreux outils pour faciliter/automatiser les tests__ 
 * __Arbitrage quantité/efficacité de tests__
+* __Possibilité d'utiliser l'IA pour des cas simples__
 
 --
 # Structure de base d’un test
@@ -193,6 +194,8 @@
 
 * __Travail de vérification par l’utilisateur*__ 
 
-* __Risque d’erreur__
+* __Risque d’erreur...__
 
-    * → __Besoin d’outiller les tests \!__ 
+--
+
+# Besoin d’outiller les tests \!
