@@ -5,15 +5,18 @@
 --
 # Les 5 propriétés d’un bon test
 
- * __Isolation : Le test porte sur une partie déterminée du code et les interactions avec des parties externes sont contrôlées__ 
+ * __1 - Isolation : Le test porte sur une partie déterminée du code et les interactions avec des parties externes sont contrôlées__ 
 
- * __Rapidité : Doit s’exécuter en un temps relativement court__ 
+ * __2 - Rapidité : Doit s’exécuter en un temps relativement court__ 
 
- * __Automatisation : Doit pouvoir être lancé avec peu ou pas d’intervention manuelle__ 
+ * __3 - Automatisation : Doit pouvoir être lancé avec peu ou pas d’intervention manuelle__ 
 
- * __Durabilité : Doit rester fonctionnel sur le long terme\, avec un coût de maintenance limité__ 
+--
+# Les 5 propriétés d’un bon test
 
- * __Reproductibilité : Doit pouvoir être relancé sans conditions préalables et dans tous les environnements__ 
+ * __4 - Durabilité : Doit rester fonctionnel sur le long terme\, avec un coût de maintenance limité__ 
+
+ * __5 - Reproductibilité : Doit pouvoir être relancé sans conditions préalables et dans tous les environnements__ 
 
 
 --
