@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <title>Formation – Tests unitaires</title>
@@ -8,18 +9,22 @@
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"> <!-- pour le code -->
   <link rel="stylesheet" href="diapo_style.css"> <!-- si tu as un CSS perso -->
 </head>
+
 <body>
   <div class="reveal">
     <div class="slides">
       <!-- Chapitre 0 (Page d’accueil / plan) -->
-      <section data-markdown="chapitres/chapitre0-intro.md"
-               data-separator="^---$"
-               data-separator-vertical="^--$"></section>
+      <section data-markdown="chapitres/chapitre0-intro.md" data-separator="^---$" data-separator-vertical="^--$">
+      </section>
 
-      <!-- Chapitre 1 : généralités (HORIZONTAL) ; son contenu défile en VERTICAL avec `--` -->
-      <section data-markdown="chapitres/chapitre1-generalites.md"
-               data-separator="^---$"
-               data-separator-vertical="^--$"></section>
+      <!-- Chapitre 1 : Généralités sur les tests unitaires -->
+      <section data-markdown="chapitres/chapitre1-generalites.md" data-separator="^---$" data-separator-vertical="^--$">
+      </section>
+
+      <!-- Chapitre 2 : Junit -->
+      <section data-markdown="chapitres/chapitre2-junit.md" data-separator="^---$" data-separator-vertical="^--$">
+      </section>
+
 
       <!-- Tu pourras ajouter d’autres chapitres ici -->
       <!-- <section data-markdown="chapitre2-junit.md" data-separator="^---$" data-separator-vertical="^--$"></section> -->
@@ -33,8 +38,9 @@
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',   // optionnel
-      plugins: [ RevealMarkdown, RevealHighlight ]
+      plugins: [RevealMarkdown, RevealHighlight]
     });
   </script>
 </body>
+
 </html>

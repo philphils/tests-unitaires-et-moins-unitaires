@@ -63,8 +63,7 @@
 } */
 /* Toutes les images dans les slides */
 .reveal section img {
-  max-width: 25%;   /* réduit la largeur max */
-  max-height: 60vh; /* limite la hauteur à 60% de la fenêtre */
+  max-height: 25vh; /* limite la hauteur à 60% de la fenêtre */
   height: auto;
   width: auto;
 }
