@@ -6,7 +6,7 @@
   <title>Formation – Tests unitaires</title>
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css"> <!-- pour le code -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/zenburn.css"> <!-- pour le code -->
   <link rel="stylesheet" href="diapo_style.css"> <!-- si tu as un CSS perso -->
 </head>
 
@@ -34,6 +34,12 @@
       <section data-markdown="chapitres/chapitre4-conseils.md" data-separator="^---$" data-separator-vertical="^--$">
       </section>
 
+      <!-- Chapitre 5 : Isolation, Fakes, Mocks -->
+      <section data-markdown="chapitres/chapitre5-isolation.md" data-separator="^---$" data-separator-vertical="^--$">
+      </section>
+
+
+
       <!-- Tu pourras ajouter d’autres chapitres ici -->
       <!-- <section data-markdown="chapitre2-junit.md" data-separator="^---$" data-separator-vertical="^--$"></section> -->
     </div>
@@ -46,7 +52,10 @@
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',   // optionnel
-      plugins: [RevealMarkdown, RevealHighlight]
+      plugins: [RevealMarkdown, RevealHighlight],
+      highlight: {
+        highlightOnLoad: true
+      }
     });
   </script>
 </body>

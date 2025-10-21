@@ -6,7 +6,7 @@
 ---
 # ...et moins unitaires !
 
-![](img%5Cdiapo_tests_unitaires_0.png)
+![](../img/diapo_tests_unitaires_0.png)
 
 
 <div style="position: absolute; bottom: 20px; right: 30px; font-size: 0.8em; color: #444; font-style: italic">
@@ -53,160 +53,6 @@
 ---
 
 
-
- __Isolation des tests : Les Fakes et les Mocks__ 
-
-
----
-# Introduction
-
-
-
-*  __Principe de test : une classe → un test__ 
-*  __En mode test « unitaire » : On ne teste normalement que le code de la classe__ 
-*  __Questions :__ 
-  *  __Comment faire pour les autres classes qui sont appelées par le code ? \(ex : autres classes service\)__ 
-  *  __Comment faire pour les services extérieurs disponibles en environnement de production seulement ? \(ex : accès à la base\, messagerie\, annuaire…\)__ 
-  *  __Comment faire pour tester le bon comportement en cas d’erreur difficile ou impossible à reproduire ? \(ex : réseau\)__ 
-
-
-
----
-# Solution : La simulation
-
-
-
-*  __On va chercher à reproduire le comportement d’une classe sans l’appeler réellement__ 
-*  __Définition ad hoc des résultats à renvoyer pour des paramètres données qui seront passés pour le test__ 
-*  __Plusieurs solutions de mise en œuvre :__ 
-  *  __Solution manuelle : les Fakes__ 
-  *  __Solution outillée : les Mocks__ 
-
-
-
----
-# Les Fakes
-
- __Réalisation d’une « fausse » classe de service pour un test donnée__ 
-
- __Contraint à créer un constructeur permettant l’injection du fake \(injection de dépendance\) :__ 
-
- __Le Fake implémente l’interface de service__ 
-
- __Les méthodes sont défini pour renvoyer un résultat correspondant au contexte du test__ 
-
- __Inconvénient : long à développer__ 
-
- __→ __    __Utiliser un outil adéquat : les Mocks__ 
-
-![](img%5Cdiapo_tests_unitaires_12.png)
-
-
----
-# Les Mocks
-
-
-
-*  __Utilisation de librairies permettant la génération de « mocks »__ 
-*  __Mock : Classe qui porte le même nom mais dont chaque méthode par défaut ne fait rien__ 
-*  __La librairie comporte des méthodes pour configurer le comportement du mock__ 
-*  __Utiles dans différents contextes :__ 
-  *  __Simuler le comportement classe externes__ 
-  *  __Simuler appel services extérieurs \(api\, messagerie\, annuaire\.\.\.\)__ 
-  *  __Pouvoir développer certains composants avant que d’autres ne soient développés \(bouchon\, prestataire…\)__ 
-  *  __Simuler des erreurs complexes à reproduire \(ex :réseau\)__ 
-  *  __Pouvoir contrôler les méthodes qui sont appelée sur les mocks__ 
-
-
-
----
-# Les Mocks : Mise en œuvre
-
- __Plusieurs librairies sur le marché : Mockito\, PowerMock\, EasyMock…__ 
-
- __La plus répandue : Mockito__ 
-
- __Exemple :__ 
-
-![](img%5Cdiapo_tests_unitaires_13.png)
-
-![](img%5Cdiapo_tests_unitaires_14.png)
-
-
----
-# Les Mocks : Annotations
-
- __Les méthodes plus récentes pour créer des Mocks utilisent les annotations__ 
-
- __Il faut d’abord utiliser le Runner Mockito :__ 
-
- __Puis on peut créer des attributs « mockés » avec__    __ __   <span style="color:#a0a0a0"> _@Mock_    __ :__ 
-
- __On configure et utilise ensuite le mock comme précédemment__ 
-
-![](img%5Cdiapo_tests_unitaires_15.png)
-
-![](img%5Cdiapo_tests_unitaires_16.png)
-
-
----
-# Les Mocks : Exemples
-
-
-
-*  __Utilisation des filtres sur les arguments avec __   <span style="color:#666666"> __when\(\)__    __ :__ 
-    * <span style="color:#666666"> __Any\(\)\, anyString\(\)\, anyList\(\) \.\.\.__ 
-*  __Réutilisation des arguments avec __   <span style="color:#666666"> __thenAnswer\(\)__    __ : __ 
-    * <span style="color:#666666"> __Mockito\.when\(myMock\.myFunction\(anyString\(\)\)\)__ 
-    * <span style="color:#666666"> __\.thenAnswer\(i \-> i\.getArguments\(\)\[0\]\)__ 
-*  __Vérification sur les appels de méthodes avec __   <span style="color:#666666"> __verify\(\)__    __ :__ 
-    * <span style="color:#666666"> __Mockito\.verify\(myMock\)\.uneMethode\(arguments\)  __ 
-    * <span style="color:#3465a4"> __→ __   <span style="color:#3465a4"> __Vérifie que la méthode « uneMethode » a été appelée avec « arguments »__ 
-    * <span style="color:#666666"> __Mockito\.verify\(myMock\, times\(2\)\)\.uneMethode\(\)__ 
-    * <span style="color:#3465a4"> __→ __   <span style="color:#3465a4"> __Vérifie que la méthode « uneMethode » a été appelée 2 fois__ 
-    * <span style="color:#666666"> __Mockito\.verify\(myMock\, atLeast\(2\)\)\.uneMethode\(\)__ 
-    * <span style="color:#3465a4"> __→ __   <span style="color:#3465a4"> __Vérifie que la méthode « uneMethode » a été appelée au moins 2 fois__ 
-    * <span style="color:#666666"> __Mockito\.verifyZeroInteractions\(myMock\)__ 
-    * <span style="color:#3465a4"> __→ __   <span style="color:#3465a4"> __Vérifie que le mock n’a eu aucune interaction__ 
-
-
-
----
-# Les Mocks : Objectif
-
- __On va ainsi redéfinir au cas par cas les fonction de la classe qu’on « mock »__ 
-
- __Mockito est assez souple et permet de s’adapter à de nombreux cas__ 
-
- __Exemple : Levée d’exception\, réponse selon les types d’arguments\, réutilisation des arguments dans le résultats\, compter le nombre d’appels\, etc\.__ 
-
- __Reste coûteux à développer et assez peu lisible__ 
-
- __Très utiles pour les appel à services extérieurs__ 
-
- __Possibilité d’utiliser les Spy pour conserver une partie du code de la classe__ 
-
-
----
-# Les Spy
-
- __Logique inverse des Mocks__ 
-
- __On a une classe qui fait par défaut la même chose que la classe qu’on « spy »__ 
-
- __Mais on peut redéfinir ses comportements pour le besoin des tests__ 
-
- __E__    __t surtout on peut contrôler les appels à ses différentes méthodes avec __   <span style="color:#1290c3"> __Mockito__   <span style="color:#666666"> __\.__   <span style="color:#96ec3f"> _verify_ 
-
- __Mise en œuvre similaire avec __   <span style="color:#1290c3"> __Mockito__   <span style="color:#666666"> __\.__   <span style="color:#96ec3f"> _spy_   <span style="color:#666666"> __\(__   <span style="color:#80f2f6"> __InterfaceService__   <span style="color:#666666"> __\.__   <span style="color:#cc6c1d"> __class__   <span style="color:#666666"> __\)__    __ ou __ 
-
-![](img%5Cdiapo_tests_unitaires_17.png)
-
-![](img%5Cdiapo_tests_unitaires_18.png)
-
- __Exercice 3 et 3 bis : Fake et Mock__ 
-
-<span style="color:#3465a4"> __\(Instructions contenues dans le readme\)__ 
 
  __Tests et base de données__ 
 
@@ -322,11 +168,11 @@
 
  __Connexion sans InseeConfig \(ou plus simple encore avec les properties seulement en Spring Boot\) :__ 
 
-![](img%5Cdiapo_tests_unitaires_19.png)
+![](../img/diapo_tests_unitaires_19.png)
 
-![](img%5Cdiapo_tests_unitaires_20.png)
+![](../img/diapo_tests_unitaires_20.png)
 
-![](img%5Cdiapo_tests_unitaires_21.png)
+![](../img/diapo_tests_unitaires_21.png)
 
 
 ---
@@ -358,9 +204,9 @@
 
  __Très bien pour les tests d’intégration\, souplesse pour le paramétrage__ 
 
-![](img%5Cdiapo_tests_unitaires_22.png)
+![](../img/diapo_tests_unitaires_22.png)
 
-![](img%5Cdiapo_tests_unitaires_23.png)
+![](../img/diapo_tests_unitaires_23.png)
 
  __DBUnit : Une gestion via XML des jeux de test__ 
 
@@ -397,7 +243,7 @@
 ---
 # DBUnit : Exemple
 
-![](img%5Cdiapo_tests_unitaires_24.png)
+![](../img/diapo_tests_unitaires_24.png)
 
 
 
@@ -406,9 +252,9 @@
 *  __Constitution d’un dataset contenant les données de test :__ 
 
 
-![](img%5Cdiapo_tests_unitaires_25.png)
+![](../img/diapo_tests_unitaires_25.png)
 
-![](img%5Cdiapo_tests_unitaires_26.png)
+![](../img/diapo_tests_unitaires_26.png)
 
 
 ---
@@ -425,9 +271,9 @@
 *  __Autre solution : Créer les objets en Java\, les insérer avec Hibernate… Mais c’est un autre sujet __ 
 
 
-![](img%5Cdiapo_tests_unitaires_27.png)
+![](../img/diapo_tests_unitaires_27.png)
 
-![](img%5Cdiapo_tests_unitaires_28.png)
+![](../img/diapo_tests_unitaires_28.png)
 
  __Merci de votre attention__ 
 
