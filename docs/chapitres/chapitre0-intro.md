@@ -6,7 +6,7 @@
 --
 # ...et moins unitaires !
 
-![](./..%5Cimg%5Cdiapo_tests_unitaires_0.png)
+![](./../img/diapo_tests_unitaires_0.png)
 
 
 <div style="position: absolute; bottom: 20px; right: 30px; font-size: 0.8em; color: #444; font-style: italic">
