@@ -169,3 +169,30 @@
 ![](./img/diapo_tests_unitaires_23.png)
 
 * __Très bien pour les tests d’intégration\, souplesse pour le paramétrage__ 
+
+
+--
+# Base embarquée : Exemple
+
+* __Par défaut la librairie Zonky requiert un environnement Docker sur la machine__
+
+* __On peut résoudre ce problème en local en installant Podman, mais pas en CI/CD__
+
+* __Il est possible de contourner ce problème avec l'annotation suivante :__
+```java
+    @AutoConfigureEmbeddedDatabase(provider = ZONKY)
+    public class ClasseDeTest {...}
+```
+
+--
+# Base embarquée : Exemple
+
+* __Il faut alors aussi ajouter la librairie :__
+```xml
+    <dependency>
+        <groupId>io.zonky.test</groupId>
+        <artifactId>embedded-postgres</artifactId>
+        <version>1.2.9</version>
+        <scope>test</scope>
+    </dependency>
+```
