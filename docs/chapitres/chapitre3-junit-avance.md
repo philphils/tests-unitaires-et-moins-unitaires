@@ -18,7 +18,7 @@
 # Tester les exceptions
 
  * __Ex:__ 
- <br/>![](../img/diapo_tests_unitaires_8.png)
+ <br/>![](./img/diapo_tests_unitaires_8.png)
 
 
 --
@@ -49,7 +49,7 @@
 # Les Matchers
 
  *  __Ex avec la librairie Harmcrest :__
-<br/> ![](../img/diapo_tests_unitaires_9.png)
+<br/> ![](./img/diapo_tests_unitaires_9.png)
  * __La librairie Hamcrest permet de bénéficier de fonctionnalités de Matcher plus complète encore (cf correction exercice 1)__
 
 --
@@ -62,7 +62,7 @@
 * __Bonne articulation avec JUnit 5__ 
 
 * __Ex :__
-<br/> ![](../img/diapo_tests_unitaires_10.png)
+<br/> ![](./img/diapo_tests_unitaires_10.png)
 
 
 --

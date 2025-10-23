@@ -128,6 +128,6 @@
  # Exercice 2 :
  # Test nouvelle méthode service
 
-![](../img/diapo_tests_unitaires_11.png)
+![](./img/diapo_tests_unitaires_11.png)
 
 <span style="color:#3465a4"> __\(Instructions contenues dans le readme\)__ 

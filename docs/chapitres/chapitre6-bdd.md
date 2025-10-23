@@ -123,17 +123,17 @@
 * __2 produits majeurs : H2\, HSQLDB__ 
 * __H2 peut fonctionner avec un driver Postgres__ 
 
-![](../img/diapo_tests_unitaires_19.png)
+![](./img/diapo_tests_unitaires_19.png)
 
 --
 # Base en mémoire : Exemple
 
 * __Connexion avec InseeConfig :__ 
-![](../img/diapo_tests_unitaires_20.png)
+![](./img/diapo_tests_unitaires_20.png)
 
 * __Connexion sans InseeConfig \(ou plus simple encore avec les properties seulement en Spring Boot\) :__ 
 
-![](../img/diapo_tests_unitaires_21.png)
+![](./img/diapo_tests_unitaires_21.png)
 
 
 --
@@ -163,9 +163,9 @@
 # Base embarquée : Exemple
 
 * __Installation :__ 
-![](../img/diapo_tests_unitaires_22.png)
+![](./img/diapo_tests_unitaires_22.png)
 
 * __Utilisation :__ 
-![](../img/diapo_tests_unitaires_23.png)
+![](./img/diapo_tests_unitaires_23.png)
 
 * __Très bien pour les tests d’intégration\, souplesse pour le paramétrage__ 

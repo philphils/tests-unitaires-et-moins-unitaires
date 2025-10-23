@@ -30,20 +30,20 @@
 --
 # DBUnit : Exemple
 *  __Installation :__ 
-![](../img/diapo_tests_unitaires_24.png)
+![](./img/diapo_tests_unitaires_24.png)
 
 *  __Exécution d’un script pour créer le schéma :__ 
-![](../img/diapo_tests_unitaires_25.png)
+![](./img/diapo_tests_unitaires_25.png)
 
 *  __Constitution d’un dataset contenant les données de test :__ 
-![](../img/diapo_tests_unitaires_26.png)
+![](./img/diapo_tests_unitaires_26.png)
 
 
 --
 # DBUnit : Chargement dataset
 
 *  __On charge ensuite le contenu du fichier XML dans la base de données :__ 
-![](../img/diapo_tests_unitaires_27.png)
+![](./img/diapo_tests_unitaires_27.png)
 
 *  __Conclusion : DBUnit offre une méthode de gestion des jeux de données de test__ 
 
@@ -60,7 +60,7 @@
 
 --
 
-![](../img/diapo_tests_unitaires_28.png)
+![](./img/diapo_tests_unitaires_28.png)
 
  __Merci de votre attention__ 
 

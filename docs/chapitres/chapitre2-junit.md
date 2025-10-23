@@ -101,7 +101,7 @@
 
 *  __Déportation du code de test dans un répertoire et des classes dédiées__
 * __Utilisation d'un répertoire "ad hoc" :__
-![](../img/diapo_tests_unitaires_3.png)
+![](./img/diapo_tests_unitaires_3.png)
 * __Pour faciliter la navigation on jumelle code de production/code de test__
 --
 # Structure du code de tests
@@ -116,7 +116,7 @@
 
 *  __Test du constructeur de la classe Personne__ 
 *  __Structure du code :__
-<br/>![](../img/diapo_tests_unitaires_5.png)
+<br/>![](./img/diapo_tests_unitaires_5.png)
 *  __Méthode de test :__
     ```java
     @Test
@@ -136,7 +136,7 @@
 # Les assertions
 
 *  __Leur échec provoque le plantage du test :__
-![](../img/diapo_tests_unitaires_6.png)
+![](./img/diapo_tests_unitaires_6.png)
 *  __Ex :__ 
       *  `Assert.assertEquals(int a, int b)` 
       *  `Assert.assertEquals(Object a, Object b)` 
@@ -171,6 +171,6 @@
 --
  __Exercice 1 : Structurer un test__ 
 
-![](../img/diapo_tests_unitaires_11.png)
+![](./img/diapo_tests_unitaires_11.png)
 
 <span style="color:#3465a4"> __\(Instructions contenues dans le readme\)__ 

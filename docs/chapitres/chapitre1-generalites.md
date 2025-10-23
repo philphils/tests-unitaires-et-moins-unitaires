@@ -90,7 +90,7 @@
 --
 # Sécuriser les mises en production
 
-![](../img/diapo_tests_unitaires_1.png)
+![](./img/diapo_tests_unitaires_1.png)
 
  __Je livre / je livre pas ? …__ 
 
@@ -161,7 +161,7 @@
 --
 # Exemple 1 : Test main
 
-![](../img/diapo_tests_unitaires_2.png)
+![](./img/diapo_tests_unitaires_2.png)
 
 * __Présentation du modèle__ 
 

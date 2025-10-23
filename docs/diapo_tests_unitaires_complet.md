@@ -6,7 +6,7 @@
 ---
 # ...et moins unitaires !
 
-![](../img/diapo_tests_unitaires_0.png)
+![](./img/diapo_tests_unitaires_0.png)
 
 
 <div style="position: absolute; bottom: 20px; right: 30px; font-size: 0.8em; color: #444; font-style: italic">
@@ -88,7 +88,7 @@
 ---
 # DBUnit : Exemple
 
-![](../img/diapo_tests_unitaires_24.png)
+![](./img/diapo_tests_unitaires_24.png)
 
 
 
@@ -97,9 +97,9 @@
 *  __Constitution d’un dataset contenant les données de test :__ 
 
 
-![](../img/diapo_tests_unitaires_25.png)
+![](./img/diapo_tests_unitaires_25.png)
 
-![](../img/diapo_tests_unitaires_26.png)
+![](./img/diapo_tests_unitaires_26.png)
 
 
 ---
@@ -116,9 +116,9 @@
 *  __Autre solution : Créer les objets en Java\, les insérer avec Hibernate… Mais c’est un autre sujet __ 
 
 
-![](../img/diapo_tests_unitaires_27.png)
+![](./img/diapo_tests_unitaires_27.png)
 
-![](../img/diapo_tests_unitaires_28.png)
+![](./img/diapo_tests_unitaires_28.png)
 
  __Merci de votre attention__ 
 

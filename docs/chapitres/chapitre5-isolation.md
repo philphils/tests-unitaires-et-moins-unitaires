@@ -33,7 +33,7 @@
 
 * __Réalisation d’une « fausse » classe de service pour un test donnée__ 
 
-* __Contraint à créer un constructeur permettant l’injection du fake \(injection de dépendance\) :__ ![](../img/diapo_tests_unitaires_12.png)
+* __Contraint à créer un constructeur permettant l’injection du fake \(injection de dépendance\) :__ ![](./img/diapo_tests_unitaires_12.png)
 
 * __Le Fake implémente l’interface de service__ 
 
@@ -68,7 +68,7 @@ __→ Utiliser un outil adéquat : les Mocks__
 
 * __Plusieurs librairies sur le marché : Mockito\, PowerMock\, EasyMock…__ 
 
-* __La plus répandue : Mockito__ ![](../img/diapo_tests_unitaires_13.png)
+* __La plus répandue : Mockito__ ![](./img/diapo_tests_unitaires_13.png)
 
 --
 # Mockito : Exemple
@@ -91,11 +91,11 @@ System.out.println(user.getLogin()); // affiche "bob"
 
 * __Les méthodes plus récentes pour créer des Mocks utilisent les annotations__
 
-* __Il faut d’abord utiliser le Runner Mockito :__ ![](../img/diapo_tests_unitaires_15.png)
+* __Il faut d’abord utiliser le Runner Mockito :__ ![](./img/diapo_tests_unitaires_15.png)
 
 * __On peut créer des mocks qu'on configurera très simplement avec `@Mock` :__
 
-![](../img/diapo_tests_unitaires_16.png)
+![](./img/diapo_tests_unitaires_16.png)
 
 
 --
@@ -161,12 +161,12 @@ System.out.println(user.getLogin()); // affiche "bob"
 
 * __Mise en œuvre similaire avec `Mockito.spy(InterfaceService.class)` ou__ 
 
-![](../img/diapo_tests_unitaires_17.png)
+![](./img/diapo_tests_unitaires_17.png)
 
 --
 
 # Exercice 3 et 3 bis : Fake et Mock
 
-![](../img/diapo_tests_unitaires_18.png)
+![](./img/diapo_tests_unitaires_18.png)
 
 <span style="color:#3465a4"> __\(Instructions contenues dans le readme\)__ 
