@@ -117,9 +117,68 @@
 
 * __On crée seulement la signature de la méthode à tester__ 
 
-* __On écrit le test qui doit planter au début : données\(GIVEN\)\, appel à la méthode \(__    __WHEN\)\, vérification des résultats attendus \(THEN\)__ 
+* __On écrit le test qui doit planter au début : données\(GIVEN\)\, appel à la méthode \(__    __WHEN\)\, vérification des résultats attendus \(THEN\)__ 
 
 * __On écrit ou modifie ensuite le code de la méthode__ 
+
+--
+# Génération des tests avec l'IA
+
+* __L'IA comme assistant pour la génération de tests unitaires__
+
+* __Avantages :__
+    * __Gain de temps considérable sur les cas simples__
+    * __Aide à la couverture de test initiale__
+    * __Propose des cas de tests auxquels on n'aurait pas pensé__
+
+--
+# Génération des tests avec l'IA
+
+* __Aide précieuse pour le code legacy :__
+    * __Analyse du comportement attendu du code existant__
+    * __Documentation implicite via les tests générés__
+    * __Identification des cas limites cachés dans le code__
+    * __Support pour la compréhension du code ancien__
+
+--
+# Génération des tests avec l'IA
+
+* __Limites et points d'attention :__
+    * __Nécessité de revoir et adapter le code généré__
+    * __Qualité variable selon la complexité du code__
+    * __Risque de tests incomplets ou incorrects__
+    * __Ne remplace pas la réflexion sur les cas métier__
+
+--
+# Utilisation de ChatGPT pour les tests
+
+* __Pas de possibilités d'utiliser Copilot sur des projets Insee non-libres__
+* __Avec ChatGPT, bonnes pratiques :__
+    * __Fournir le contexte complet (classe à tester + dépendances)__
+    * __Demander des tests spécifiques pour les cas limites__
+    * __Vérifier la cohérence avec les spécifications__
+    * __Adapter les tests générés aux conventions du projet__
+
+--
+# Génération des tests avec l'IA
+
+* __Exemple de prompt :__
+    * __"Générer des tests JUnit 5 pour la classe X"__
+    * __"Inclure les cas limites et les exceptions"__
+    * __"Utiliser AssertJ pour les assertions"__
+    * __"Respecter le format GIVEN/WHEN/THEN"__
+
+--
+# Exercice : Tests avec IA
+
+1. __Prendre une classe existante du projet__
+2. __Utiliser ChatGPT pour générer des tests unitaires__
+3. __Analyser et améliorer les tests générés :__
+    * __Identifier les cas manquants__
+    * __Corriger les erreurs éventuelles__
+    * __Adapter aux conventions du projet__
+4. __Comparer avec des tests écrits manuellement__
+5. __Discussion : avantages/inconvénients constatés__
 
 * __Le test doit passer au vert à l’issu du développement ✅__ 
 
