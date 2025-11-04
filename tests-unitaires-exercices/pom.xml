@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>fr.insee.formation</groupId>
@@ -8,11 +10,12 @@
   <artifactId>tests-unitaires-exercices</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>exercice01</module>
-  	<module>exercice02</module>
-  	<module>exercice03</module>
-  	<module>exercice04</module>
-  	<module>exercice03bis</module>
+    <module>exercice01</module>
+    <module>exercice02</module>
+    <module>exercice03</module>
+    <module>exercice03bis</module>
+    <module>exercice04</module>
+    <module>exercice04bis</module>
     <module>exercice05</module>
   </modules>
 </project>
