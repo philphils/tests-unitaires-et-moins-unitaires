@@ -87,14 +87,18 @@
 # JUnit version 5
 
 * __Refonte globale de JUnit__
-*  __Contient 3 modules en un :__
+*  __Contient 3 modules en un :__
     * __JUnit Platform  : Configuration de l'exécution des tests__
     * __JUnit Jupiter :  API d'écriture des tests__
     * __JUnit Vintage : Compatibilité descendante (JUnit 3 et 4)__
 *  __Support de Java 8__ 
 *  __Test paramétrés : Exécutions successives avec variation des paramètres__
 
+--
+# JUnit version 5
 
+* ⚠️ __Attention : Ne pas mélanger les annotations JUnit 4 (`@Before`, `@After`) avec celles de JUnit 5 (`@BeforeEach`, `@AfterEach`) dans la même classe de test__
+    * -> Cela peut créer des comportements inattendus et empêcher l'exécution correcte des tests. Choisissez une version et utilisez uniquement ses annotations.
 
 --
 # Structure du code de tests

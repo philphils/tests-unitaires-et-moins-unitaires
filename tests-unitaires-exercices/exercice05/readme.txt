@@ -29,3 +29,4 @@ Indications
 - Penser à fermer les ressources dans @AfterAll
 - Sur poste Insee, suivre la procédure d'installation de Podman :
   https://sndi-nantes.gitlab-pages.insee.fr/portail-des-connaissances/service-production/outils-prod/podman/
+  - Attention à bien utiliser @Test de Junit 5 (import org.junit.jupiter.api.Test) pour que les @BeforeAll @AfterAll soient bien appelés
