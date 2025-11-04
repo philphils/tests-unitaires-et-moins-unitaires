@@ -57,15 +57,3 @@
 * __C'est pourquoi cette solution n'est pas utilisée dans les projets récents...__
 
 *  __Autre solution : Créer les objets en Java\, les insérer avec Hibernate… Mais c’est un autre sujet__ 
-
---
-
-![](./img/diapo_tests_unitaires_28.png)
-
- __Merci de votre attention__ 
-
- __Avez\-vous des questions ?__ 
-
-Prénom Nom :   <span style="color:#ff6633">__Philippe SABAA__</span>
-
-Très inspiré du diapo de __Michael Genet__

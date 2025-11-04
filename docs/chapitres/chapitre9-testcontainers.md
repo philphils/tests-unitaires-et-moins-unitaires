@@ -154,3 +154,16 @@ public static void startContainer() throws Exception {
 * __Teste le vrai comportement de la base__
 * __Environnement propre à chaque exécution__
 * __Facilité de debug avec les outils standards__
+
+
+--
+
+![](./img/diapo_tests_unitaires_28.png)
+
+ __Merci de votre attention__ 
+
+ __Avez\-vous des questions ?__ 
+
+Prénom Nom :   <span style="color:#ff6633">__Philippe SABAA__</span>
+
+Très inspiré du diapo de __Michael Genet__
