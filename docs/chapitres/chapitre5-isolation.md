@@ -136,6 +136,32 @@ System.out.println(user.getLogin()); // affiche "bob"
 
 
 --
+# Mockito : Méthodes statiques
+
+* __Par défaut, Mockito ne peut pas mocker les méthodes statiques__
+* __Solution : utiliser `mockStatic()` :__
+```java
+// Sans try-with-resources : DANGEREUX !
+MockedStatic<MailService> mockedStatic = mockStatic(MailService.class);
+mockedStatic.when(() -> MailService.send(any())).thenReturn(true);
+
+// Bon usage avec try-with-resources :
+try (MockedStatic<MailService> mockedStatic = mockStatic(MailService.class)) {
+    mockedStatic.when(() -> MailService.send(any())).thenReturn(true);
+    // ... test ici ...
+} // Le mock est automatiquement nettoyé
+```
+
+--
+# ⚠️ Attention aux mocks statiques
+
+* __Problèmes si on n'utilise pas try-with-resources :__
+    * __Le mock n'est pas détruit à la fin du test__
+    * __Il reste actif pour les tests suivants__
+    * __Peut causer des comportements inattendus__
+    * __Difficile à déboguer__
+
+--
 # Les Mocks : Objectif
 
 * __Reste coûteux à développer et assez peu lisible__ 
