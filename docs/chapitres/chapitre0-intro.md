@@ -39,6 +39,10 @@
 
 # Plan (suite)
 
+* __Utilisation de l'IA pour les tests__
+
 * __Tests et base de données__
 
 * __DBUnit : Une gestion via XML des jeux de test__
+
+* __Le framework Testcontainer__
