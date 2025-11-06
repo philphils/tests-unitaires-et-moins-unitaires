@@ -9,7 +9,6 @@
 	<modules>
 		<module>tests-unitaires-exemples</module>
 		<module>tests-unitaires-exercices</module>
-		<module>tests-unitaires-cours</module>
 	</modules>
 	<properties>
 		<maven.compiler.source>21</maven.compiler.source>

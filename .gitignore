@@ -7,3 +7,4 @@ target/
 build/
 .factorypath
 *~lock.*
+.vscode/settings.json
