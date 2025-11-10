@@ -25,24 +25,24 @@
 # Plan
 
 
-* __Généralités sur les tests unitaires__
+* [Généralités sur les tests unitaires](#/1)
 
-* __Le framework JUnit__
+* [Le framework JUnit](#/2)
 
-* __Junit : Fonctionnalités plus avancées__
+* [Junit : Fonctionnalités plus avancées](#/3)
 
-* __Conseils, bonnes pratiques et stratégie de test__
+* [Conseils, bonnes pratiques et stratégie de test](#/4)
 
-* __Isolation des tests : les Fakes et les Mocks__
+* [Isolation des tests : les Fakes et les Mocks](#/5)
 
 --
 
 # Plan (suite)
 
-* __Utilisation de l'IA pour les tests__
+* [Utilisation de l'IA pour les tests](#/6)
 
-* __Tests et base de données__
+* [Tests et base de données](#/7)
 
-* __DBUnit : Une gestion via XML des jeux de test__
+* [DBUnit : Une gestion via XML des jeux de test](#/8)
 
-* __Le framework Testcontainer__
+* [Le framework Testcontainer](#/9)
