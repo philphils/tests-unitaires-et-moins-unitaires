@@ -79,7 +79,7 @@
     *  __Dépendance au réseau__
     *  __Lenteurs possibles__
     *  __Comment gérer l’exécution simultanée des tests par plusieurs développeurs ? \(un schéma par développeur\)__
-    *  __Comment gérer l’exécution sur la en CI/CD ?__
+    *  __Comment gérer l’exécution en CI/CD ?__
 
 
 --
@@ -111,7 +111,7 @@
 # Base en mémoire
 
 *  __Inconvénients : Problème potentiel de différence entre les environnements__ 
-*  __Impossible de tester les requêtes propriétaire de la BDD \(par ex pgSql\)__ 
+*  __Impossible de tester les requêtes propriétaire de la BDD (ex: `copy` de Postgres)__ 
 *  __Consultation possible du contenu de la base mais en mode dégradé__ 
 
 
@@ -145,7 +145,7 @@
 
 * __Plus lent que les bases en mémoire__ 
 
-* __Permet de tester les requêtes SQL « propriétaires » \(ex : copy en Postgres\)__ 
+* __Permet de tester les requêtes SQL « propriétaires »__ 
 
 
 --
@@ -174,20 +174,8 @@
 --
 # Base embarquée : Exemple
 
-* __Par défaut la librairie Zonky requiert un environnement Docker sur la machine__
 
-* __On peut résoudre ce problème en local en installant Podman, mais pas en CI/CD__
-
-* __Il est possible de contourner ce problème avec l'annotation suivante :__
-```java
-    @AutoConfigureEmbeddedDatabase(provider = ZONKY)
-    public class ClasseDeTest {...}
-```
-
---
-# Base embarquée : Exemple
-
-* __Il faut alors aussi ajouter la librairie :__
+* __Pour Postgres, il faut aussi ajouter la librairie :__
 ```xml
     <dependency>
         <groupId>io.zonky.test</groupId>

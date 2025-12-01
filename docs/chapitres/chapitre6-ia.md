@@ -82,7 +82,7 @@
 --
 # Génération des tests avec ChatGPT
 
-* __Pas de Copilot sur des projets Insee non-libres -> accès à l'ensemble du projet__
+* __Pas de Copilot sur des projets Insee non-libres car accès à l'ensemble du projet__
 * __Avec ChatGPT, bonnes pratiques :__
     * __Fournir le contexte complet (classe à tester + dépendances)__
     * __Demander des tests spécifiques pour les cas limites__
