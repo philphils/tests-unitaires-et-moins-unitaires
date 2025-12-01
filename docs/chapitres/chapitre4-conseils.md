@@ -82,7 +82,7 @@
 --
 # Stratégie de test
 
-* __Test d’intégration permettent de couvrir un maximum de code \(niveau API service ou batch\)__ 
+* __Test d’intégration permettent de couvrir un maximum de code \(niveau API, service ou batch\)__ 
 
 * __Test unitaire sont utiles pendant le développement \(cf TDD diapo suivante\) et pour débuggage__ 
 

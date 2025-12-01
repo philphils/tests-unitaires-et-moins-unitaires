@@ -12,7 +12,7 @@
         public void testMaMethodeException(){...}
     ```
 
- * __Possible en utilisant `Assert.fail()` aussi__ 
+ * __Possible en utilisant `Assert.fail()` aussi, mais moins précis__ 
 
 --
 # Tester les exceptions
@@ -24,7 +24,7 @@
 --
 # Les Hooks
 
- * __Méthode permettant la mise en place du contexte de test :__ 
+ * __Méthodes permettant la mise en place du contexte de test__ 
 
  * __Permet par exemple la création du jeu de données\, la mise en place d’une BDD pour les tests\, le nettoyage etc\.__ 
 
@@ -49,7 +49,7 @@
 # Les Matchers
 
  *  __Ex avec la librairie Harmcrest :__
-<br/> ![](./img/diapo_tests_unitaires_9.png)
+![](./img/diapo_tests_unitaires_9.png)
  * __La librairie Hamcrest permet de bénéficier de fonctionnalités de Matcher plus complète encore (cf correction exercice 1)__
 
 --
