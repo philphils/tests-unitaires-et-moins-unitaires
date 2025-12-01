@@ -143,10 +143,10 @@
 
 *  __Méthode archaïque de test__ 
 *  __Encore présente dans certaines applications__ 
-*  __Écriture d’une classe avec une méthode :__ 
+*  __Écriture d’une classe avec une méthode `main`:__ 
   ```java 
     public static void main(String[] args) {
-      // Test de la mthode... 
+      // Test de la méthode... 
     } 
   ```
 --
@@ -193,7 +193,7 @@
 
 * __Pas de séparation claire entre le code de test et de production__ 
 
-* __Travail de vérification par l’utilisateur*__ 
+* __Travail de vérification par l’utilisateur__ 
 
 * __Risque d’erreur...__
 
