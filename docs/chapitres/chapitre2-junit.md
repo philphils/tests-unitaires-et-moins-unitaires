@@ -5,7 +5,7 @@
 --
 # Les 5 propriétés d’un bon test
 
- * __1 - Isolation : Le test porte sur une partie déterminée du code et les interactions avec des parties externes sont contrôlées__ 
+ * __1 - Isolation : Le test porte sur une partie déterminée du code et les interactions avec des parties externes sont réduites ou contrôlées__ 
 
  * __2 - Rapidité : Doit s’exécuter en un temps relativement court__ 
 
@@ -42,8 +42,8 @@
 
   ```xml
     <dependency>
-        <groupId>JUnit</groupId>
-        <artifactId>JUnit</artifactId>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
         <version>4.13.2</version>
         <scope>test</scope>
     </dependency>
@@ -59,14 +59,14 @@
 
   ```xml
 		<dependency>
-			<groupId>org.JUnit.jupiter</groupId>
-			<artifactId>JUnit-jupiter</artifactId>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
 			<version>5.11.3</version>
 			<scope>test</scope>
 		</dependency>
   ```
 
-* __On pourra aussi ajouter la librairie ```JUnit-vintage-engine``` pour avoir la compatibilité descendante avec les anciennes versions__
+* __On pourra aussi ajouter la librairie ```junit-vintage-engine``` pour avoir la compatibilité descendante avec les anciennes versions__
 
 --
 # JUnit version 3
@@ -90,7 +90,7 @@
 *  __Contient 3 modules en un :__
     * __JUnit Platform  : Configuration de l'exécution des tests__
     * __JUnit Jupiter :  API d'écriture des tests__
-    * __JUnit Vintage : Compatibilité descendante (JUnit 3 et 4)__
+    * __JUnit Vintage : Compatibilité descendante avec version 3 et 4 (mais nécessité d'ajouter la librairie)__
 *  __Support de Java 8__ 
 *  __Test paramétrés : Exécutions successives avec variation des paramètres__
 
@@ -98,12 +98,12 @@
 # JUnit version 5
 
 * ⚠️ __Attention : Ne pas mélanger les annotations JUnit 4 (`@Before`, `@After`) avec celles de JUnit 5 (`@BeforeEach`, `@AfterEach`) dans la même classe de test__
-    * -> Cela peut créer des comportements inattendus et empêcher l'exécution correcte des tests. Choisissez une version et utilisez uniquement ses annotations.
+    * Cela peut créer des comportements inattendus et empêcher l'exécution correcte des tests. Choisissez une version et utilisez uniquement ses annotations.
 
 --
 # Structure du code de tests
 
-*  __Déportation du code de test dans un répertoire et des classes dédiées__
+*  __Déportation du code de test dans un répertoire et des classes dédiés__
 * __Utilisation d'un répertoire "ad hoc" :__
 ![](./img/diapo_tests_unitaires_3.png)
 * __Pour faciliter la navigation on jumelle code de production/code de test__
