@@ -5,7 +5,7 @@
 
 * __Bibliothèque Java qui permet d'exécuter des tests avec des conteneurs Docker__ 
 * __Supporte de nombreux systèmes : PostgreSQL, ElasticSearch, MySQL, MongoDB... etc.__
-* __Idéal pour reproduire son environnement de productoin en tests d'intégration__
+* __Idéal pour reproduire son environnement de production en tests d'intégration__
 
 
 --
@@ -15,7 +15,8 @@
     * __Environnement de test isolé et jetable__
     * __Très proche de la production__
     * __Pas de configuration nécessaire sur le poste de dev__
-    * __Fonctionne parfaitement en CI/CD__
+    * __Fonctionne parfaitement en CI/CD... normalement !__
+    * __... Mais pas encore à l'Insee 😭__
 
 
 --
@@ -23,7 +24,7 @@
 
 * __Inconvénients :__
     * __Nécessite un environnement Docker sur la machine__
-    * __Sur les postes Insee possible avec Podman mais pas trivial : [procédure d'installation] (https://sndi-nantes.gitlab-pages.insee.fr/portail-des-connaissances/service-production/outils-prod/podman/)__
+    * __Sur les postes Insee possible avec Podman mais pas trivial : https://sndi-nantes.gitlab-pages.insee.fr/portail-des-connaissances/service-production/outils-prod/podman/__
     * __Pas d'environnement Docker pour l'instant en CI/CD... (désactivation des tests en CI/CD ou contournement avec les Gitlab Services)__
 --
 # Comment ça marche ?
@@ -75,7 +76,8 @@
 public class ModeleVoitureDaoTest {
 
     @Container
-    public static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:15.3")
+    public static PostgreSQLContainer<?> postgres 
+            = new PostgreSQLContainer<>("postgres:15.3")
             .withDatabaseName("testdb")
             .withUsername("test")
             .withPassword("test");
@@ -132,19 +134,12 @@ public static void startContainer() throws Exception {
 4. __Créer une connexion dans DBeaver avec les informations affichées__
 
 --
-# Exercice : DAO avec TestContainer
+# Exercice 5 : 
+# Utiliser Testcontainer
 
-* __Objectif : Créer une DAO JDBC et la tester avec TestContainer__
-* __Étapes :__
-    1. __Ajouter les dépendances TestContainer au pom.xml__
-    2. __Implémenter une DAO avec des méthodes CRUD basiques__
+![](./img/diapo_tests_unitaires_18.png)
 
---
-# Exercice : DAO avec TestContainer
-* __Étapes :__
-    3. __Créer un test utilisant un conteneur PostgreSQL__
-    4. __Vérifier l'insertion et la lecture des données__
-    5. __Explorer la base en debug avec DBeaver__
+<span style="color:#3465a4"> __\(Instructions contenues dans le readme\)__ 
 
 --
 # Avantages de cette approche
