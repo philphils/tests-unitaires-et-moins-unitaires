@@ -17,8 +17,11 @@ Votre mission
 2. Examiner le pom.xml pour comprendre les dépendances Testcontainers
 3. Créer une classe de test ModeleVoitureDaoTest qui :
    - Démarre un conteneur PostgreSQL avec Testcontainers
-   - Crée la table nécessaire via la DAO
-   - Teste l'insertion et la lecture d'une voiture
+   - Stock une connexion à l'issue du démarrage
+4 - Créer une méthode de test qui avec  ModuleVoitureDao:
+   - Crée la table nécessaire
+   - Insère une ligne dans la table et vérifie l'insertion
+   - Vérifie la lecture
 4. Bonus : Se connecter à la base en debug avec DBeaver
 
 Indications
