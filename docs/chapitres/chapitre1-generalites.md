@@ -71,7 +71,8 @@
 # Conclusion
 
 *  __Adopter une stratégie « raisonnable »__ 
-* __Pour des tests sur des fonctionnalités entières on parle de « tests d’intégration »__ 
+* __Pour des tests sur des fonctionnalités entières on parle de « tests d’intégration »__
+* __Nous en reparlerons... 😉__
 
 
 
