@@ -8,7 +8,7 @@ Désormais les régles pour les voitures essence et diesel sont les suivantes :
 
 1. modifier le code et le test pour tenir compte de cette spécification
 
-2. le test fonctionnera-t'il encore dansc 1 ans sans être modifié (durabilité) ?
+2. le test fonctionnera-t'il encore dans 1 an sans être modifié (durabilité) ?
 Pourquoi ?
 
 3. implémenter une solution avec une horloge
