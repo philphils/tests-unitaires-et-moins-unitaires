@@ -75,13 +75,14 @@
 
   <!-- Scripts Reveal -->
   <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
   <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
   <script>
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
-      plugins: [RevealMarkdown, RevealHighlight],
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes ],
       highlight: { highlightOnLoad: true }
     });
   </script>
