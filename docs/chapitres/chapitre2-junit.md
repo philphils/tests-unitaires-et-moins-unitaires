@@ -124,7 +124,7 @@
 *  __Méthode de test :__
     ```java
     @Test
-    public void testCreationPersonne()
+    public void testPersonne_DUPONT()
     ```
 *  __Exécution du test__ 
 *  __Lecture et compréhension du code__
