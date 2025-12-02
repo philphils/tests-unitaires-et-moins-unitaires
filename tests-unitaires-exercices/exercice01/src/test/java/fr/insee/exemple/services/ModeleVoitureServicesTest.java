@@ -1,6 +1,7 @@
 package fr.insee.exemple.services;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
@@ -54,6 +55,8 @@ public class ModeleVoitureServicesTest {
 		assertTrue(voituresMoinsPolluantes.contains(renaultClioEssence1999));
 		assertTrue(voituresMoinsPolluantes.contains(citroenSaxoElectrique2015));
 		assertTrue(voituresMoinsPolluantes.contains(renaultClioGpl2013));
+
+		assertEquals(3, voituresMoinsPolluantes.size());
 
 		// Avec les Matcher (cf partie suivante du diapo)
 		assertThat(voituresMoinsPolluantes).containsExactlyInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015,
