@@ -46,3 +46,15 @@
 * [DBUnit : Une gestion via XML des jeux de test](#/8)
 
 * [Le framework Testcontainer](#/9)
+
+--
+
+# Installations
+
+* Pour la partie Testcontainer, lancer dès maintenant les installations nécessaires pour avoir Podman :
+    * WSL (Microsoft Corporation II - Windows Subsystem for Linux)
+    * Podman
+    * Podman Desktop
+    * Docker Compose
+
+* Idéalement, redémarrer la machine à la fin des installations
