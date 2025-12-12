@@ -70,6 +70,7 @@ public class ConducteurServicesMessagerieTest {
 
 		// On doit avoir lever une exception avant, si le programme continue jusqu'ici
 		// le test doit échouer
+		//(c'est superflu car on a 	@Test(expected = ConnexionServeurMailException.class) mais c'est pour l'exemple)
 		Assert.fail();
 
 	}
