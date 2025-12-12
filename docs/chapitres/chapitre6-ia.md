@@ -1,102 +1,76 @@
-# Utilisation de l'IA pour les tests
-
---
-# Génération des tests avec l'IA
-
-* __L'IA très intéressant comme assistant pour la génération de tests unitaires__
-
-* __Avantages :__
-    * __Gain de temps considérable sur les cas simples__
-    * __Aide à la couverture de test initiale__
-    * __Propose des cas de tests auxquels on n'aurait pas pensé__
-
---
-# Génération des tests avec l'IA
-
-* __Aide précieuse pour le code legacy :__
-    * __Analyse du comportement attendu du code existant__
-    * __Documentation implicite via les tests générés__
-    * __Identification des cas limites cachés dans le code__
-    * __Support pour la compréhension du code ancien__
-
---
-# Points de vigilance
-
-* __Limites et points d'attention :__
-    * __Nécessité de revoir et adapter le code généré__
-    * __Qualité variable selon la complexité du code__
-    * __Risque de tests incomplets ou incorrects__
-    * __Ne remplace pas la réflexion sur les cas métier__
+# Utilisation de l’IA 
+# pour les tests unitaires
 
 --
 
-# ⚠️ Sécurité et confidentialité
+## Pourquoi utiliser l’IA ?
 
-* __Attention au code confidentiel :__
-    * __NE JAMAIS soumettre de code sensible aux LLM publics (ChatGPT, etc.)__
-    * __NE JAMAIS soumettre de données personnelles ou administratives__
-    * __Le code soumis devient accessible à l'éditeur du LLM__
-    * __Risque de fuite de données ou de logique métier sensible__
-
---
-
-# ⚠️ Sécurité et confidentialité
-
-* __Bonnes pratiques :__
-    * __Utiliser uniquement les LLM internes pour le code sensible__
-    * __Pour les LLM publics : du code public/open source ou non sensible__
-    * __Anonymiser/nettoyer le code si nécessaire__
-    * __En cas de doute, consulter la politique de sécurité__
+- **Gain de temps** : accélère la création des tests unitaires, surtout pour les cas simples.
+- **Aide à la couverture de tests** : suggère des cas auxquels on ne pense pas toujours.
+- **Support pour le code legacy** :
+  - Analyse le comportement attendu du code existant.
+  - Génère des tests servant de documentation implicite.
+  - Identifie les cas limites cachés dans le code.
 
 --
 
-# ❌ Mauvaise utilisation des LLM
+## Limites à connaître
 
-* __À ne JAMAIS soumettre aux LLM publics :__
-    * __Données personnelles ou administratives__
-    * __Credentials, tokens, clés de chiffrement__
-    * __Règles métier confidentielles__
-    * __Configurations de sécurité__
+- **Validation indispensable** : les tests générés doivent toujours être revus et adaptés.
+- **Qualité variable** : dépend de la complexité du code.
+- **Réflexion métier non remplacée** : l’IA ne comprend pas les règles fonctionnelles.
+- **Risque de tests incomplets ou incorrects** : ne pas se fier aveuglément au résultat.
+
+--
+
+## Bonnes pratiques d’utilisation
+
+- **Fournir le contexte complet** : inclure la classe à tester et ses dépendances.
+- **Demander des cas spécifiques** : cas limites, exceptions, scénarios métiers.
+- **Utiliser les conventions du projet** : nommage, framework de test, style GIVEN/WHEN/THEN.
+- **Adapter les tests générés** : les intégrer proprement au projet.
 
 --
 
-#  ✅ Bonne utilisation des 
-# LLM externes
+## Sécurité et confidentialité
 
-* __Utilisation possible avec précaution :__
-    * __Code technique standard (CRUD, validations, etc.)__
-    * __Tests unitaires sans données sensibles sur des composants__
-    * __Requêtes SQL génériques__
-    * __Classes modèle simples__
+### ❌ À ne jamais soumettre aux LLM publics
 
---
-#  ✅ Bonne utilisation des 
-# LLM externes
-
-* __Bonnes pratiques :__
-    * __Anonymiser les noms si besoin__
-    * __Utiliser des données factices__
-    * __Privilégier les LLM internes si disponibles__
-    * __En cas de doute, consulter l'équipe sécurité__
+- Données personnelles ou administratives.
+- Credentials, tokens, clés de chiffrement.
+- Logique métier confidentielle.
+- Fichiers de configuration sensibles.
 
 --
-# Génération des tests avec ChatGPT
 
-* __Pas de Copilot sur des projets Insee non-libres car accès à l'ensemble du projet__
-* __Avec ChatGPT, bonnes pratiques :__
-    * __Fournir le contexte complet (classe à tester + dépendances)__
-    * __Demander des tests spécifiques pour les cas limites__
-    * __Vérifier la cohérence avec les spécifications__
-    * __Adapter les tests générés aux conventions du projet__
+### ✅ Utilisation raisonnable possible avec précaution
+
+- Code technique générique (CRUD, validations).
+- Tests unitaires sans données sensibles.
+- Requêtes SQL ou classes modèle simples.
+- Logique métier non sensible
+- Utilisation de **LLM internes** préférée si disponibles.
 
 --
-# Génération des tests avec ChatGPT
 
-* __Exemple de prompt :__
-    * __"Générer des tests JUnit 5 pour la classe X"__
-    * __"Inclure les cas limites et les exceptions"__
-    * __"Utiliser AssertJ pour les assertions"__
-    * __"Respecter le format GIVEN/WHEN/THEN"__
+### 🔒 Bonnes pratiques de sécurité
+
+- **Anonymiser les noms** si besoin.
+- **Nettoyer le code** avant soumission.
+- **Vérifier la politique de sécurité** en vigueur.
+- **Demander l’avis de l’équipe sécurité** en cas de doute.
+
+--
+
+## Exemple de prompt efficace
+
+```plaintext
+Génère des tests JUnit 5 pour la classe X.
+Inclure les cas limites et les exceptions.
+Utiliser AssertJ.
+Suivre le format GIVEN / WHEN / THEN.
+```
+(fournir la classe en PJ)
 
 --
 
