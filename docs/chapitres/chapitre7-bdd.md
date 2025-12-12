@@ -128,10 +128,12 @@
 --
 # Base en mémoire : Exemple
 
-* __Connexion avec InseeConfig :__ 
-![](./img/diapo_tests_unitaires_20.png)
+* __Connexion avec SD44Configuration :__ 
+```java
+SD44Configuration.getPool("poolTest").getConnection();
+```
 
-* __Connexion sans InseeConfig \(ou plus simple encore avec les properties seulement en Spring Boot\) :__ 
+* __Connexion sans SD44Configuration \(ou plus simple encore avec les properties seulement en Spring Boot\) :__ 
 
 ![](./img/diapo_tests_unitaires_21.png)
 
