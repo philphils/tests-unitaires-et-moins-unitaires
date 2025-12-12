@@ -3,15 +3,14 @@
 # des jeux de test
 
 --
-# Outil de gestion des données de test
+# Outil de gestion 
+# des données de test
 
 * __Question : Sous quelle forme stocker\, insérer les données de test ?__ 
 
 * __DBUnit est un framework permettant la gestion des données de test via fichiers XML \(appelé « dataset »\)__ 
 
-* __En utilisation dans plusieurs applications du parc Insee__ 
-
-* __Moins utilisé maintenant car assez verbeux et coût en maintenance__ 
+* __En utilisation dans plusieurs applications du parc Insee, moins utilisé maintenant car assez verbeux et coûteux en maintenance__
 
 
 --
