@@ -56,11 +56,13 @@ public class ModeleVoitureServicesTest {
 		assertTrue(voituresMoinsPolluantes.contains(citroenSaxoElectrique2015));
 		assertTrue(voituresMoinsPolluantes.contains(renaultClioGpl2013));
 
+		//on vérifie qu'il n'y en a bien que 3
 		assertEquals(3, voituresMoinsPolluantes.size());
 
 		// Avec les Matcher (cf partie suivante du diapo)
-		assertThat(voituresMoinsPolluantes).containsExactlyInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015,
-				renaultClioGpl2013);
+		assertThat(voituresMoinsPolluantes)
+			.containsExactlyInAnyOrder(renaultClioEssence1999, citroenSaxoElectrique2015,renaultClioGpl2013)
+			.hasSize(3);
 
 	}
 
