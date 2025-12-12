@@ -186,3 +186,13 @@ SD44Configuration.getPool("poolTest").getConnection();
         <scope>test</scope>
     </dependency>
 ```
+
+--
+# Solution à l'état de l'art :
+# Docker !
+
+- __On peut utiliser une solution basée sur Docker__
+- __Permet d'avoir une base à l'image de la production__
+- __Déploiement rapide et simple__
+- __Cf Partie [Testcontainer](#/9) !__
+
