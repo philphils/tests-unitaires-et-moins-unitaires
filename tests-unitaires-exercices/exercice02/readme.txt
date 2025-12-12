@@ -19,5 +19,6 @@ créer la classe conducteur et tous les éléments nécessaires
 
 2- on veut maintenant disposer d'un service métier qui, partant d'une liste de conducteurs, renvoie la liste des conducteurs possédant un véhicule considéré comme peu polluant
 ce service devra s'appuyer sur le service déjà existant qui filtre les modèles de voiture peu polluants
-- développer le service et mettre en place un test avec ce qu'on a déjà vu en cours
-- se poser quelques questions...
+- développer le service
+- mettre en place un test avec ce qu'on a déjà vu en cours
+- se poser quelques questions ;) ...
